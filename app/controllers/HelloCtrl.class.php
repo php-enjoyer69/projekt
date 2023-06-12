@@ -21,7 +21,7 @@ class HelloCtrl {
         Utils::addInfoMessage("Or even easier message :-)");
         
         App::getSmarty()->assign("value",$variable);        
-        App::getSmarty()->display("index.html");
+        App::getSmarty()->display("MoviesView.tpl");
         
     }
     
