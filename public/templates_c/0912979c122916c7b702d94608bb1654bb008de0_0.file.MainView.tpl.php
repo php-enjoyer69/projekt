@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-06-11 20:12:40
+/* Smarty version 3.1.33, created on 2023-06-13 21:08:50
   from 'C:\xampp\htdocs\projekt\app\views\templates\MainView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64860e98858bf0_78732760',
+  'unifunc' => 'content_6488bec22522c0_09214494',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0912979c122916c7b702d94608bb1654bb008de0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MainView.tpl',
-      1 => 1686507150,
+      1 => 1686507185,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64860e98858bf0_78732760 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6488bec22522c0_09214494 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -61,7 +61,7 @@ function content_64860e98858bf0_78732760 (Smarty_Internal_Template $_smarty_tpl)
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="sraka.tpl">Strona główna</a></li>
+							<li><a href="MainView.tpl">Strona główna</a></li>
 							<li><a href="MoviesView.tpl">Filmy i Seriale</a></li>
 							<li><a href="ActorsView.tpl">Aktorzy i Reżyserzy</a></li>
 							<li><a href="LoginView.tpl">Wyloguj</a></li>
