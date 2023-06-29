@@ -8,7 +8,7 @@ use core\RoleUtils;
 use core\ParamUtils;
 use app\forms\MovieEditForm;
 
-class AnimalEditCtrl {
+class MovieEditCtrl {
 
     private $form; //dane formularza
 
@@ -30,16 +30,16 @@ class AnimalEditCtrl {
 
         // 1. sprawdzenie czy wartości wymagane nie są puste
         if (empty(trim($this->form->id_movie))) {
-            Utils::addErrorMessage('insert id');
+            Utils::addErrorMessage('Uzupełnij ID');
         }
         if (empty(trim($this->form->title))) {
-            Utils::addErrorMessage('insert movie title');
+            Utils::addErrorMessage('Uzupełnij tytuł filmu');
         }
         if (empty(trim($this->form->year))) {
-            Utils::addErrorMessage('insert year of the movie');
+            Utils::addErrorMessage('Uzupełnij rok produkcji');
         }
         if (empty(trim($this->form->description))) {
-            Utils::addErrorMessage('movie description cannot be empty');
+            Utils::addErrorMessage('Opis filmu nie może być pusty');
         }
 
         if (App::getMessages()->isError())
@@ -49,7 +49,7 @@ class AnimalEditCtrl {
 
         $d = \DateTime::createFromFormat('Y', $this->form->year);
         if ($d === false) {
-            Utils::addErrorMessage('wrong data format! year only. example: 2001');
+            Utils::addErrorMessage('Zły format daty. Wpisz tylko rok produkcji, przykład: 2001');
         }
 
         return !App::getMessages()->isError();
@@ -102,15 +102,15 @@ class AnimalEditCtrl {
                 App::getDB()->delete("movie", [
                     "id_movie" => $this->form->id_movie
                 ]);
-                Utils::addInfoMessage('record deleted');
+                Utils::addInfoMessage('Rekord usunięty');
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('unexspected deleting record error');
+                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas usuwania');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
         }
 
-        // 3. Przekierowanie na stronę listy osób
+        // 3. Przekierowanie na stronę listy filmów
         App::getRouter()->forwardTo('MovieList');
     }
 
@@ -134,7 +134,7 @@ class AnimalEditCtrl {
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
-                        Utils::addInfoMessage('limit: too much records(>100) to add new record you have to delete another');
+                        Utils::addInfoMessage('Uwaga: za dużo rekordów, maks. 100. Usuń inny rekord żeby stworzyć nowy');
                         $this->generateView(); //pozostań na stronie edycji
                         exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
                     }
@@ -148,9 +148,9 @@ class AnimalEditCtrl {
                         "id_movie" => $this->form->id_movie
                     ]);
                 }
-                Utils::addInfoMessage('record saved');
+                Utils::addInfoMessage('Zapisano');
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('unexpected saving record error');
+                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
