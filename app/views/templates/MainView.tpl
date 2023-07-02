@@ -32,16 +32,16 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="MainView.tpl" class="logo">Precel</a>
+						<a href="{$conf->action_root}MainView" class="logo">Precel</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="MainView.tpl">Strona główna</a></li>
-							<li><a href="MoviesView.tpl">Filmy i Seriale</a></li>
-							<li><a href="ActorsView.tpl">Aktorzy i Reżyserzy</a></li>
-							<li><a href="LoginView.tpl">Wyloguj</a></li>
+							<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
+							<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
+							<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
+							<li><a href="{$conf->action_url}login">Wyloguj</a></li>
 						</ul>
 					</nav>
 
@@ -54,12 +54,13 @@
 									<h2><a href="#">Szukasz<br />
 									idealnego filmu?</a></h2>
 									<class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></class=>
-									<p>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
-									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</p>
+									<br><br>
+									<sup>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
+									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</sup>
 								</header>
 								
 								<ul class="actions special">
-									<li><a href="moviesPage.tpl" class="button large">Przeglądaj filmy i seriale</a></li>
+									<li><a href="{$conf->action_root}MovieList" class="button large">Przeglądaj filmy i seriale</a></li>
 								</ul>
 							</article>
 

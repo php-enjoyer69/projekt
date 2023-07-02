@@ -11,7 +11,6 @@ $conf->db_type = 'mysql';
 $conf->db_server = 'localhost';
 $conf->db_name = 'movieweb';
 $conf->db_user = 'root';
-$conf->db_pass = '';
 $conf->db_charset = 'utf8';
 
 # ---- Database config - optional values

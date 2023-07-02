@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-06-13 21:08:50
+/* Smarty version 3.1.33, created on 2023-07-02 15:55:02
   from 'C:\xampp\htdocs\projekt\app\views\templates\MainView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_6488bec22522c0_09214494',
+  'unifunc' => 'content_64a181b6d01660_24644368',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0912979c122916c7b702d94608bb1654bb008de0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MainView.tpl',
-      1 => 1686507185,
+      1 => 1688306101,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6488bec22522c0_09214494 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a181b6d01660_24644368 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -55,16 +55,21 @@ function content_6488bec22522c0_09214494 (Smarty_Internal_Template $_smarty_tpl)
 
 				<!-- Header -->
 					<header id="header">
-						<a href="MainView.tpl" class="logo">Precel</a>
+						<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+MainView" class="logo">Precel</a>
 					</header>
 
 				<!-- Nav -->
 					<nav id="nav">
 						<ul class="links">
-							<li><a href="MainView.tpl">Strona główna</a></li>
-							<li><a href="MoviesView.tpl">Filmy i Seriale</a></li>
-							<li><a href="ActorsView.tpl">Aktorzy i Reżyserzy</a></li>
-							<li><a href="LoginView.tpl">Wyloguj</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+MainView">Strona główna</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+MovieList">Filmy i Seriale</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+PersonList">Aktorzy i Reżyserzy</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+login">Wyloguj</a></li>
 						</ul>
 					</nav>
 
@@ -77,12 +82,14 @@ function content_6488bec22522c0_09214494 (Smarty_Internal_Template $_smarty_tpl)
 									<h2><a href="#">Szukasz<br />
 									idealnego filmu?</a></h2>
 									<class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></class=>
-									<p>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
-									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</p>
+									<br><br>
+									<sup>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
+									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</sup>
 								</header>
 								
 								<ul class="actions special">
-									<li><a href="moviesPage.tpl" class="button large">Przeglądaj filmy i seriale</a></li>
+									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+MovieList" class="button large">Przeglądaj filmy i seriale</a></li>
 								</ul>
 							</article>
 

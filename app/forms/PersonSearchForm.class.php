@@ -2,8 +2,7 @@
 
 namespace app\forms;
 
-class PersonEditForm {
-    public $id_person;
+class PersonSearchForm {
 	public $name;
     public $surname;
 	public $birthyear;

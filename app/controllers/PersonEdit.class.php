@@ -8,7 +8,7 @@ use core\ParamUtils;
 use core\Validator;
 use app\forms\PersonEditForm;
 
-class CaretakerEditCtrl
+class PersonEditCtrl
 {
 
     private $form; //dane formularza
@@ -37,15 +37,15 @@ class CaretakerEditCtrl
             'validator_message' => 'Błędne wywołanie aplikacji'
         ]);
 
-        $date = $v->validateFromPost('birthdate', [
+        $date = $v->validateFromPost('birthyear', [
             'trim' => true,
             'required' => true,
             'required_message' => "Wprowadź datę",
-            'date_format' => 'Y-m-d',
-            'validator_message' => "Niepoprawny format daty. Przykład: 2000-12-31"
+            'date_format' => 'Y',
+            'validator_message' => "Niepoprawny format daty. Podaj tylko rok. Przykład: 2000"
         ]);
         if ($v->isLastOK()) {
-            $this->form->birthdate = $date->format('Y-m-d');
+            $this->form->birthyear = $date->format('Y');
         }
         return !App::getMessages()->isError();
     }
@@ -78,7 +78,7 @@ class CaretakerEditCtrl
                 $this->form->id_person = $record['id_person'];
                 $this->form->name = $record['name'];
                 $this->form->surname = $record['surname'];
-                $this->form->birthdate = $record['birthdate'];
+                $this->form->birthyear = $record['birthyear'];
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
@@ -129,7 +129,7 @@ class CaretakerEditCtrl
                         "id_person" => $this->form->id_person,
                         "name" => $this->form->name,
                         "surname" => $this->form->surname,
-                        "birthdate" => $this->form->birthdate,
+                        "birthyear" => $this->form->birthyear,
                     ]);
 
                 } else {
@@ -137,7 +137,7 @@ class CaretakerEditCtrl
                     App::getDB()->update("person", [
                         "name" => $this->form->name,
                         "surname" => $this->form->surname,
-                        "birthdate" => $this->form->birthdate
+                        "birthyear" => $this->form->birthyear
                     ], [
                         "id_person" => $this->form->id_person
                     ]);

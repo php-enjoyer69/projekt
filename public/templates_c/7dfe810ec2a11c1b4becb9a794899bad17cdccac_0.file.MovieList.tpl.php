@@ -1,4 +1,27 @@
-<!DOCTYPE HTML>
+<?php
+/* Smarty version 3.1.33, created on 2023-07-02 16:02:46
+  from 'C:\xampp\htdocs\projekt\app\views\templates\MovieList.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_64a18386aaacb7_96221834',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '7dfe810ec2a11c1b4becb9a794899bad17cdccac' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieList.tpl',
+      1 => 1688305849,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_64a18386aaacb7_96221834 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
@@ -25,10 +48,14 @@
 				<!-- Nav -->
 				<nav id="nav">
 				<ul class="links">
-					<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
-					<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
-					<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
-					<li><a href="{$conf->action_url}login">Wyloguj</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+MainView">Strona główna</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+MovieList">Filmy i Seriale</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+PersonList">Aktorzy i Reżyserzy</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+login">Wyloguj</a></li>
 				</ul>
 			</nav>
 
@@ -37,14 +64,25 @@
 
 						<!-- Posts -->
 							<section class="posts">
-							{foreach $movie as $m}
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['movie']->value, 'm');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
+?>
 								<article>
-								    <h5 class="major">{$m["year"]}</h5>
-								    <!-- <a class="image"><img src="images/{$m["cover"]}" /></a> -->
-									<h3 class="major">{$m["title"]}</h3>
-									<h6 class="center">{$m["description"]}</h6>
+								    <h5 class="major"><?php echo $_smarty_tpl->tpl_vars['m']->value["year"];?>
+</h5>
+								    <!-- <a class="image"><img src="images/<?php echo $_smarty_tpl->tpl_vars['m']->value["cover"];?>
+" /></a> -->
+									<h3 class="major"><?php echo $_smarty_tpl->tpl_vars['m']->value["title"];?>
+</h3>
+									<h6 class="center"><?php echo $_smarty_tpl->tpl_vars['m']->value["description"];?>
+</h6>
 								</article>
-							{/foreach}
+							<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							<!--
 								<article>
 									<header>
@@ -146,13 +184,28 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<?php echo '<script'; ?>
+ src="assets/js/jquery.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="assets/js/jquery.scrollex.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="assets/js/jquery.scrolly.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="assets/js/browser.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="assets/js/util.js"><?php echo '</script'; ?>
+>
+			<?php echo '<script'; ?>
+ src="assets/js/main.js"><?php echo '</script'; ?>
+>
 
 	</body>
-</html>
+</html><?php }
+}
