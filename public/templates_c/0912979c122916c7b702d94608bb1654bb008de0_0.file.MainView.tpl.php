@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-02 15:55:02
+/* Smarty version 3.1.33, created on 2023-07-03 18:43:39
   from 'C:\xampp\htdocs\projekt\app\views\templates\MainView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a181b6d01660_24644368',
+  'unifunc' => 'content_64a2fabb037203_56828981',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0912979c122916c7b702d94608bb1654bb008de0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MainView.tpl',
-      1 => 1688306101,
+      1 => 1688402615,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a181b6d01660_24644368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a2fabb037203_56828981 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -68,8 +68,12 @@ MainView">Strona główna</a></li>
 MovieList">Filmy i Seriale</a></li>
 							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 PersonList">Aktorzy i Reżyserzy</a></li>
+
+
+							<ul class="icons">
 							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-login">Wyloguj</a></li>
+logout">Wyloguj</a></li>
+							</ul>
 						</ul>
 					</nav>
 
@@ -81,7 +85,7 @@ login">Wyloguj</a></li>
 								<header class="major">
 									<h2><a href="#">Szukasz<br />
 									idealnego filmu?</a></h2>
-									<class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></class=>
+									<a class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></a>
 									<br><br>
 									<sup>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
 									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</sup>

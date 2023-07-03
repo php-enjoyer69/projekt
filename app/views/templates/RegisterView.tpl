@@ -1,36 +1,67 @@
-<link rel="stylesheet" href="assets/css/main1.css" />
+<!DOCTYPE HTML>
+
+<head>
+		<title>rejstracja <a class="image"><img src="images/pretzelcharacter.png" height=65 width=50 alt=""/></a></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{$conf->app_url}/assets/css/main1.css" />
+		<style>
+			.login-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+
+			.container {
+				width: 400px;
+				text-align: center;
+			}
+		</style>
+</head>
+
 <body>
-<form action="{$conf->action_url}login" method="post" class="wrapper style2 special fade">
-<div class="container">
-	<header>
-		<h2><b style="color: #f942a4">Rejestracja</h2>
-		<p>Zarejestruj się by móc w pełni korzystać ze strony</p>
-	</header>
-	<form method="post" action="#" class="cta">
-		<div class="row gtr-uniform gtr-50">
-            <div class="col-8 col-12-xsmall"><input type="email" name="email" id="id_email" placeholder="adres e-mail" /></div>
-			<div class="col-8 col-12-xsmall"><input type="text" name="login" id="id_login" placeholder="login" /></div>
-			<div class="col-8 col-12-xsmall"><input type="password" name="pass" id="id_pass" placeholder="hasło" /></div>
-            <div class="col-4 col-12-xsmall"><input type="submit" value="Zarejestruj się teraz" class="button fit primary" href="{$conf->action_root}register"/></div>
+	<div class="login-wrapper">
+		<div class="container">
+			
 
-			{if $msgs->isMessage()}
-				<div class="messages bottom-margin">
-					<ul>
-						{foreach $msgs->getMessages() as $msg}
-							{strip}
-								<span msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if}
-									{if $msg->isInfo()}info{/if}><li>{$msg->text}</li></span>
-							{/strip}
-						{/foreach}
-					</ul>
+<header>
+                <h2>Rejestracja do systemu</h2>
+                <form action="{$conf->action_root}register" method="post">
+                <fieldset>    
+                <div class="pure-control-group" style="margin-bottom:20px">
+                    <input id="login" type="text" name="login" placeholder="utwórz nowy login">
+                </div>
+                
+                <div class="pure-control-group">
+                <input id="password" type="password" name="pass" placeholder="utwórz nowe hasło"/><br />
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="Zarejestruj" class="button primary" />
+                    <a class="button" href="{$conf->action_root}loginShow">Powrót</a>
+					</div>
+                
+            </fieldset>
+            </form>    
+            </header>
+			{block name=messages}
+
+				{if $msgs->isMessage()}
+					<div class="messages bottom-margin">
+						<ul>
+							{foreach $msgs->getMessages() as $msg}
+								{strip}
+									<span msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if}
+										{if $msg->isInfo()}info{/if}">{$msg->text}</</span>
+								{/strip}
+							{/foreach}
+						</ul>
+					</div>
+				{/if}
+
+			{/block}
 				</div>
-			{/if}
-
+			</form>
+            <a class="image background"><img src="images/pretzelbirthday.png" alt=""/></a> 
 		</div>
-
-	</form>
-	<!-- <a href="#" class="image fit"><img src="images/pretzelbirthday.png" alt=""/></a> -->
-	<!-- <class="image"><img src="images/pretzelbirthday.png" alt=""/></class=> -->
 </div>
-</form>
-</body>

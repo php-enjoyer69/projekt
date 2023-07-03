@@ -24,6 +24,7 @@ class MovieEditCtrl {
         $this->form->title = ParamUtils::getFromRequest('title', true, 'Błędne wywołanie aplikacji');
         $this->form->year = ParamUtils::getFromRequest('year', true, 'Błędne wywołanie aplikacji');
         $this->form->description = ParamUtils::getFromRequest('description', true, 'Błędne wywołanie aplikacji');
+        $this->form->cover = ParamUtils::getFromRequest('cover', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -40,6 +41,9 @@ class MovieEditCtrl {
         }
         if (empty(trim($this->form->description))) {
             Utils::addErrorMessage('Opis filmu nie może być pusty');
+        }
+        if (empty(trim($this->form->cover))) {
+            Utils::addErrorMessage('Film musi mieć obrazek');
         }
 
         if (App::getMessages()->isError())
@@ -81,6 +85,7 @@ class MovieEditCtrl {
                 $this->form->title= $record['title'];
                 $this->form->year = $record['year'];
                 $this->form->description = $record['description'];
+                $this->form->cover = $record['cover'];
 
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -131,6 +136,7 @@ class MovieEditCtrl {
                             "title" => $this->form->title,
                             "year" => $this->form->year,
                             "description" => $this->form->description,
+                            "cover" => $this->form->cover,
                         ]);
                     } else { //za dużo rekordów
                         // Gdy za dużo rekordów to pozostań na stronie
@@ -143,7 +149,8 @@ class MovieEditCtrl {
                     App::getDB()->update("movie", [
                         "title" => $this->form->title,
                         "year" => $this->form->year,
-                        "description" => $this->form->description
+                        "description" => $this->form->description,
+                        "cover" => $this->form->cover
                             ], [
                         "id_movie" => $this->form->id_movie
                     ]);

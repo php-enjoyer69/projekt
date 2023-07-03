@@ -21,7 +21,7 @@ class MovieSearchCtrl {
     public function validate() {
         // 1. sprawdzenie, czy parametry zostały przekazane
         // - nie trzeba sprawdzać
-        $this->form->title = ParamUtils::getFromRequest('sf_title_name');
+        $this->form->title = ParamUtils::getFromRequest('title');
 
         // 2. sprawdzenie poprawności przekazanych parametrów
         // - nie trzeba sprawdzać
@@ -29,7 +29,7 @@ class MovieSearchCtrl {
         return !App::getMessages()->isError();
     }
 
-    public function action_animalList() {
+    public function action_MovieList() {
         // 1. Walidacja danych formularza (z pobraniem)
         // - W tej aplikacji walidacja nie jest potrzebna, ponieważ nie wystąpią błedy podczas podawania nazwiska.
         //   Jednak pozostawiono ją, ponieważ gdyby uzytkownik wprowadzał np. datę, lub wartość numeryczną, to trzeba
@@ -62,6 +62,7 @@ class MovieSearchCtrl {
                 "title",
                 "year",
                 "description",
+                "cover",
                     ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

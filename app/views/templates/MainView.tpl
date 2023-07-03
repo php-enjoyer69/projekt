@@ -41,7 +41,11 @@
 							<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
 							<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
 							<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
-							<li><a href="{$conf->action_url}login">Wyloguj</a></li>
+
+
+							<ul class="icons">
+							<li><a href="{$conf->action_url}logout">Wyloguj</a></li>
+							</ul>
 						</ul>
 					</nav>
 
@@ -53,7 +57,7 @@
 								<header class="major">
 									<h2><a href="#">Szukasz<br />
 									idealnego filmu?</a></h2>
-									<class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></class=>
+									<a class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></a>
 									<br><br>
 									<sup>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
 									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</sup>

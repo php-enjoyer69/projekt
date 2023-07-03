@@ -23,25 +23,54 @@
 					</header>
 
 				<!-- Nav -->
-				<nav id="nav">
+
+				 <nav id="nav">
+				{if Core\RoleUtils::inRole("1")}
+				
+                <ul class="links">
+					<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
+					<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
+					<li><a href="{$conf->action_root}MovieEdit">Edytuj film</a></li>
+					<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
+					<li><a href="{$conf->action_root}PersonEdit">Edytuj osoby</a></li>
+				</ul>
+				{else}
 				<ul class="links">
 					<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
 					<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
 					<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
-					<li><a href="{$conf->action_url}login">Wyloguj</a></li>
 				</ul>
-			</nav>
+				{/if}
+				{if count($conf->roles)>0}
+				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
+			{else}
+				<a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
+			{/if}
+			</nav> 
 
 				<!-- Main -->
 					<div id="main">
+					{if Core\RoleUtils::inRole("1")}
+					<a>Zalogowano jako admin</span></a>
+					{/if}
+					<div class="bottom-margin">
+					<form class="pure-form pure-form-stacked" action="{$conf->action_url}MovieSearch">
+					 <legend>Wyszukaj film</legend>
+					  <fieldset>							
+						<input type="text" placeholder="tytuł filmu" name="name" value="" />
 
+
+						<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+					  </fieldset>
+					</form>
+				</div>
 						<!-- Posts -->
 							<section class="posts">
 							{foreach $movie as $m}
 								<article>
 								    <h5 class="major">{$m["year"]}</h5>
-								    <!-- <a class="image"><img src="images/{$m["cover"]}" /></a> -->
 									<h3 class="major">{$m["title"]}</h3>
+								    <a class="image"><img src="images/{$m["cover"]}" height=320 width=250 /></a>
 									<h6 class="center">{$m["description"]}</h6>
 								</article>
 							{/foreach}
