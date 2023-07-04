@@ -25,7 +25,7 @@
 				<!-- Nav -->
 
 				 <nav id="nav">
-
+				 <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" {* style="margin-top: 10px; margin-left: 150px" *}/></a> 
                 <ul class="links">
 					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
 					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
@@ -68,10 +68,10 @@
 								    <h4 style="color: #ff4eac">Rok Produkcji:</h4><h3>{$movie["year"]}</h3>
 									<h4 style="color: #ff4eac">Opis: </h4><h4>{$movie["description"]}</h4>
 									<h4 style="color: #ff4eac">Występują: </h4><h4>{$movie["starring"]}</h4>
-									<a class="image"><img src="images/pretzelbirthday.png" alt=""/></a>
 
-								</article>
 
+								</article><br>
+									<a class="button primary" href="{$conf->action_root}movieList">Powrót</a>
 							<!--
 								<article>
 									<header>
@@ -167,7 +167,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>

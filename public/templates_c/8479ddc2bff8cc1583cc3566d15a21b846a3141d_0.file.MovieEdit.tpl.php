@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 12:50:14
+/* Smarty version 3.1.33, created on 2023-07-04 20:09:37
   from 'C:\xampp\htdocs\projekt\app\views\templates\MovieEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a3f9668a27a1_74328909',
+  'unifunc' => 'content_64a46061776334_26632376',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8479ddc2bff8cc1583cc3566d15a21b846a3141d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieEdit.tpl',
-      1 => 1688467811,
+      1 => 1688493228,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a3f9668a27a1_74328909 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a46061776334_26632376 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -57,7 +57,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <nav>
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_43550892664a3f966887eb7_57903691', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_37511035864a4606175a553_81230880', 'messages');
 ?>
 
 
@@ -72,17 +72,8 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_43550892664a3f9668
 
     <section id="wrapper">
 
-        <header>
-
-            <div class="inner">
-
-                <h2>edycja/dodawanie filmów</h2>
-
-            </div>
-
-        </header>
-
         <div class="bottom-margin form-container">
+        <h2 style="text-align: center"><br>edycja/dodawanie filmów</h2>
 
             <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 movieSave" method="post" class="pure-form pure-form-aligned">
@@ -101,7 +92,7 @@ movieSave" method="post" class="pure-form pure-form-aligned">
                             value="<?php echo $_smarty_tpl->tpl_vars['form']->value->title;?>
 ">
 
-                    </div>
+                    </div><br>
 
                     <div class="pure-control-group">
 
@@ -112,31 +103,41 @@ movieSave" method="post" class="pure-form pure-form-aligned">
                             value="<?php echo $_smarty_tpl->tpl_vars['form']->value->year;?>
 ">
 
-                    </div>
+                    </div><br>
 
                     <div class="pure-control-group">
 
                         <label for="description">opis</label>
-
-                        <input id="description" type="text" placeholder="opis" name="description"
-
+                        <input id="description" type="text" name="description" placeholder="opis"
                             value="<?php echo $_smarty_tpl->tpl_vars['form']->value->description;?>
-">
+"></input>
 
-                    </div>
+                    </div><br>
 
                     <div class="pure-control-group">
 
-                        <label for="title">tytuł</label>
+                        <label for="title">plik z obrazkiem</label>
 
                         <input id="cover" type="text" placeholder="obrazek" name="cover"
 
                             value="<?php echo $_smarty_tpl->tpl_vars['form']->value->cover;?>
 ">
 
-                    </div>
+                    </div><br>
 
-                    <div class="pure-controls" style="margin-top: 20px;">
+                    
+                    <div class="pure-control-group">
+
+                        <label for="starring">kto występuje</label>
+
+                        <input id="starring" type="text" placeholder="kto występuje" name="starring"
+
+                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->starring;?>
+">
+
+                    </div><br>
+
+                    <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
 
                         <input type="submit" class="button primary" value="Zapisz" />
 
@@ -194,12 +195,12 @@ movieList">Powrót</a>
 </html>
 <?php }
 /* {block 'messages'} */
-class Block_43550892664a3f966887eb7_57903691 extends Smarty_Internal_Block
+class Block_37511035864a4606175a553_81230880 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_43550892664a3f966887eb7_57903691',
+    0 => 'Block_37511035864a4606175a553_81230880',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

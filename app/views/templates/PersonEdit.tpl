@@ -66,28 +66,13 @@
 
 <body>
 
-    <section id="wrapper">
-
-        <header>
-
-            <div class="inner">
-
-                <h2>Edycja/dodawanie osób</h2>
-
-            </div>
-
-        </header>
-
         <div class="bottom-margin form-container">
-
+        <h2 style="text-align: center"><br>edycja/dodawanie osób</h2>
             <form action="{$conf->action_root}personSave" method="post" class="pure-form pure-form-aligned">
-
             <input type="hidden" name="id_person" value="{$form->id_person}">
-
                 <fieldset>
-
-                    <div class="pure-control-group"> <br>
-
+                    <div class="pure-control-group">
+                    <label for="name">imię</label>
                         <input id="name" type="text" placeholder="imie" name="name"
 
                             value="{$form->name}">
@@ -95,15 +80,15 @@
                     </div>
 
                     <div class="pure-control-group"> <br>
-
-                        <input id="surname" type="text" placeholder="imie" name="surname"
+                    <label for="surname">nazwisko</label>
+                        <input id="surname" type="text" placeholder="nazwisko" name="surname"
 
                             value="{$form->surname}">
 
                     </div>
 
                     <div class="pure-control-group"> <br>
-
+                    <label for="birthyear">rok urodzenia</label>
                         <input id="birthyear" type="text" placeholder="rok urodzenia" name="birthyear"
 
                             value="{$form->birthyear}">
@@ -111,14 +96,31 @@
                     </div>
 
 					<div class="pure-control-group"> <br>
-
-					<input id="portrait" type="text" placeholder="portret osoby" name="portrait"
+                    <label for="portrait">portret</label>
+					<input id="portrait" type="text" placeholder="plik z portretem" name="portrait"
 
 						value="{$form->portrait}">
 
 				</div>
 
-                    <div class="pure-controls" style="margin-top: 20px;">
+                    <div class="pure-control-group"> <br>
+                    <label for="person_role">rola osoby</label>
+                    <select id="person_role" name="person_role">
+                    <option value="reżyser/reżyserka">reżyser/reżyserka</option>
+                    <option value="aktor/aktorka">aktor/aktorka</option>
+                    <option value="aktor i reżyser/aktorka i reżyserka">aktor i reżyser/aktorka i reżyserka</option>
+                    </select>
+                </div>
+
+                    <div class="pure-control-group"> <br>
+                    <label for="starred_in">udział w tych filmach:</label>
+                    <input id="starred_in" type="text" placeholder="filmy w których brano udział" name="starred_in"
+
+                        value="{$form->starred_in}">
+
+               </div>
+
+                    <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
 
                         <input type="submit" class="button primary" value="Zapisz" />
 

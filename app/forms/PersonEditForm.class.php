@@ -8,4 +8,6 @@ class PersonEditForm {
     public $surname;
 	public $birthyear;
     public $portrait;
+    public $person_role;
+    public $starred_in;
 }

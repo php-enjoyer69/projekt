@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 09:26:12
+/* Smarty version 3.1.33, created on 2023-07-04 21:25:38
   from 'C:\xampp\htdocs\projekt\app\views\templates\MainView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a3c994d90404_47932021',
+  'unifunc' => 'content_64a4723222ea42_94802673',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0912979c122916c7b702d94608bb1654bb008de0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MainView.tpl',
-      1 => 1688455563,
+      1 => 1688493224,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a3c994d90404_47932021 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a4723222ea42_94802673 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -62,24 +62,32 @@ MainView" class="logo">Precel</a>
 				<!-- Nav -->
 				<nav id="nav">
                 <ul class="links">
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" /></a> 
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 movieList">Filmy i Seriale</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 personList">Aktorzy i Reżyserzy</a></li>
 
-				<?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
-				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+                </ul>
+
+                <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
+
+                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout" class="button primary">Wyloguj</a>
-			<?php } else { ?>
-				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+
+            <?php } else { ?>
+
+                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 loginShow" class="button primary">Zaloguj</a>
-			<?php }?>
+
+            <?php }?>
 			</nav> 
 
 				<!-- Main -->
 					<div id="main">
 					<?php if (Core\RoleUtils::inRole("1")) {?>
-					<h5>Zalogowano jako ADMIN</span></h5>
+						<h5>Zalogowano jako ADMIN</h5>
 					<?php }?>
 						<!-- Featured Post -->
 							<article class="post featured">
@@ -88,8 +96,8 @@ loginShow" class="button primary">Zaloguj</a>
 									idealnego filmu?</a></h2>
 									<a class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></a>
 									<br><br>
-									<sup>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
-									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</sup>
+									<sup>Precel.pl to strona stworzona do odkrywania nowych filmów
+									dla każdej grupy wiekowej oraz szukania informacji na temat aktorów i reżyserów. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem ♥</sup>
 								</header>
 								
 								<ul class="actions special">
@@ -102,7 +110,7 @@ movieList" class="button large">Przeglądaj filmy i seriale</a></li>
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Precel.pl</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>

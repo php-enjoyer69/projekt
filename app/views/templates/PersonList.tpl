@@ -42,7 +42,7 @@
 
                     <header id="header">
 
-                        <a href="MainView.tpl" class="logo">Precel</a>
+                        <a href="MainView" class="logo">Precel</a>
 
                     </header>
 
@@ -54,7 +54,7 @@
                 <nav id="nav">
 
 
-
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" {* style="margin-top: 10px; margin-left: 150px" *}/></a> 
 
                 <ul class="links">
 
@@ -85,21 +85,21 @@
 
                     {if Core\RoleUtils::inRole("1")}
 
-                    <h5>Zalogowano jako ADMIN<br><br><a class="button" href="{$conf->action_root}personNew">Dodaj nowego aktora/reżysera</a></h5>
+                    <h5>Zalogowano jako ADMIN<br><br><a class="button primary" href="{$conf->action_root}personNew">Dodaj nowego aktora/reżysera</a></h5>
 
                     {/if}
 
                     <form class="pure-form pure-form-stacked" action="{$conf->action_url}personSearch">
 
-                    <legend>Wyszukaj osobę</legend>
+                  {*  <h5>Wyszukaj osobę</h5>
 
                      <fieldset>                            
 
-                       <input type="text" placeholder="wpisz nazwisko" name="sf_surname"/>
+                       <input type="text" placeholder="wpisz nazwisko" id="surname" name="surname"/>
 
-                       <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+                       <button type="submit" class="button primary">Filtruj</button>
 
-                     </fieldset>
+                     </fieldset> *}
 
                    </form>
 
@@ -124,7 +124,7 @@
 										href="{$conf->action_url}personDelete/{$p['id_person']}">Usuń</a>
 							    	{/if}
 
-
+                                    <a class="button primary small" href="{$conf->action_url}personView/{$p['id_person']}">Zobacz szczegóły</a>
 
                                 </article>
 
@@ -175,7 +175,7 @@
 
                     <div id="copyright">
 
-                        <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                        <ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 
                     </div>
 

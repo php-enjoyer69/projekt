@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 16:37:00
+/* Smarty version 3.1.33, created on 2023-07-04 21:11:42
   from 'C:\xampp\htdocs\projekt\app\views\templates\MovieList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a42e8c3f7635_08326738',
+  'unifunc' => 'content_64a46eeee29eb4_01102598',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7dfe810ec2a11c1b4becb9a794899bad17cdccac' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieList.tpl',
-      1 => 1688481416,
+      1 => 1688497899,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a42e8c3f7635_08326738 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a46eeee29eb4_01102598 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 
 <!--
@@ -43,9 +43,11 @@ function content_64a42e8c3f7635_08326738 (Smarty_Internal_Template $_smarty_tpl)
 
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+/assets/css/main.css" />
 
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <noscript><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+/assets/css/noscript.css" /></noscript>
 
     </head>
 
@@ -59,12 +61,9 @@ function content_64a42e8c3f7635_08326738 (Smarty_Internal_Template $_smarty_tpl)
             <div id="wrapper" class="fade-in">
 
 
-
-
                 <!-- Header -->
 
                     <header id="header">
-
                         <a href="MainView" class="logo">Precel</a>
 
                     </header>
@@ -83,7 +82,7 @@ function content_64a42e8c3f7635_08326738 (Smarty_Internal_Template $_smarty_tpl)
 
 
                 <ul class="links">
-
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" /></a> 
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 movieList">Filmy i Seriale</a></li>
 
@@ -115,7 +114,7 @@ loginShow" class="button primary">Zaloguj</a>
 
                     <?php if (Core\RoleUtils::inRole("1")) {?>
 
-                    <h5>Zalogowano jako ADMIN <br><br><a class="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+                    <h5>Zalogowano jako ADMIN <br><br><a class="button primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 movieNew">dodaj nowy film</a></h5>
 
                     <?php }?>
@@ -125,13 +124,13 @@ movieNew">dodaj nowy film</a></h5>
                     <form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 movieSearch">
 
-                     <legend>Wyszukaj film</legend>
+                     <h5>Wyszukaj film</h5>
 
                       <fieldset>                            
 
-                        <input type="text" placeholder="tytuł filmu" name="sf_title"/>
+                        <input type="text" placeholder="tytuł filmu" id="title" name="title"/>
 
-                        <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+                        <button type="submit" class="button primary">Filtruj</button>
 
                       </fieldset>
 
@@ -151,9 +150,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
 
                                 <article>
 
-                                    <h5 class="major"><?php echo $_smarty_tpl->tpl_vars['m']->value["year"];?>
-</h5>
-
+                                   
                                     <h3 class="major"><?php echo $_smarty_tpl->tpl_vars['m']->value["title"];?>
 </h3>
 
@@ -183,7 +180,7 @@ movieDelete/<?php echo $_smarty_tpl->tpl_vars['m']->value['id_movie'];?>
 
 
 
-                                    <a class="button primary small" color: #fd44bf href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+                                    <a class="button primary small" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 movieView/<?php echo $_smarty_tpl->tpl_vars['m']->value['id_movie'];?>
 ">Zobacz szczegóły</a>
 
@@ -390,7 +387,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
                     <div id="copyright">
 
-                        <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                        <ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 
                     </div>
 

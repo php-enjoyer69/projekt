@@ -18,7 +18,7 @@ class MovieSearchCtrl {
 	}
 
     public function validate() {
-		$this->form->title = ParamUtils::getFromRequest('sf_title');
+		$this->form->title = ParamUtils::getFromRequest('title');
 		return ! App::getMessages()->isError();
 	}
 
@@ -47,8 +47,9 @@ class MovieSearchCtrl {
                     "year",
 					"description",
                     "cover",
+					"starring",
 				], $where );
-		} catch (PDOException $e) {
+		} catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());

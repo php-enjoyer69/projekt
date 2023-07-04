@@ -90,6 +90,31 @@ class PersonEditCtrl
 
         ]);
 
+        $this->form->person_role = $v->validateFromPost("person_role", [
+
+            'trim' => true,
+
+            'required' => true,
+
+            'required_message' => 'Rola jest wymagana',
+
+            'validator_message' => 'Rola jest wymagana'
+
+        ]);
+
+        $this->form->starred_in = $v->validateFromPost("starred_in", [
+
+            'trim' => true,
+
+            'required' => true,
+
+            'required_message' => 'Filmy z udziałem są wymagane',
+
+            'validator_message' => 'Filmy z udziałem są wymagane'
+
+        ]);
+
+
     
 
         $date = $v->validateFromPost('birthyear', [
@@ -163,6 +188,10 @@ class PersonEditCtrl
                 $this->form->birthyear = $record['birthyear'];
 
                 $this->form->portrait = $record['portrait'];
+
+                $this->form->person_role = $record['person_role'];
+
+                $this->form->starred_in = $record['starred_in'];
 
             } catch (\PDOException $e) {
 
@@ -252,6 +281,10 @@ class PersonEditCtrl
 
                         "portrait" => $this->form->portrait,
 
+                        "person_role" => $this->form->person_role,
+
+                        "starred_in" => $this->form->starred_in,
+
                     ]);
 
 
@@ -267,7 +300,11 @@ class PersonEditCtrl
 
                         "birthyear" => $this->form->birthyear,
 
-                        "portrait" => $this->form->portrait
+                        "portrait" => $this->form->portrait,
+
+                        "person_role" => $this->form->person_role,
+
+                        "starred_in" => $this->form->starred_in,
 
                     ], [
 

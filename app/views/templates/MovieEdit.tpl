@@ -68,17 +68,8 @@
 
     <section id="wrapper">
 
-        <header>
-
-            <div class="inner">
-
-                <h2>edycja/dodawanie filmów</h2>
-
-            </div>
-
-        </header>
-
         <div class="bottom-margin form-container">
+        <h2 style="text-align: center"><br>edycja/dodawanie filmów</h2>
 
             <form action="{$conf->action_root}movieSave" method="post" class="pure-form pure-form-aligned">
 
@@ -94,7 +85,7 @@
 
                             value="{$form->title}">
 
-                    </div>
+                    </div><br>
 
                     <div class="pure-control-group">
 
@@ -104,29 +95,38 @@
 
                             value="{$form->year}">
 
-                    </div>
+                    </div><br>
 
                     <div class="pure-control-group">
 
                         <label for="description">opis</label>
+                        <input id="description" type="text" name="description" placeholder="opis"
+                            value="{$form->description}"></input>
 
-                        <input id="description" type="text" placeholder="opis" name="description"
-
-                            value="{$form->description}">
-
-                    </div>
+                    </div><br>
 
                     <div class="pure-control-group">
 
-                        <label for="title">tytuł</label>
+                        <label for="title">plik z obrazkiem</label>
 
                         <input id="cover" type="text" placeholder="obrazek" name="cover"
 
                             value="{$form->cover}">
 
-                    </div>
+                    </div><br>
 
-                    <div class="pure-controls" style="margin-top: 20px;">
+                    
+                    <div class="pure-control-group">
+
+                        <label for="starring">kto występuje</label>
+
+                        <input id="starring" type="text" placeholder="kto występuje" name="starring"
+
+                            value="{$form->starring}">
+
+                    </div><br>
+
+                    <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
 
                         <input type="submit" class="button primary" value="Zapisz" />
 

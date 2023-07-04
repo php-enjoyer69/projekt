@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 21:28:14
-  from 'C:\xampp\htdocs\projekt\app\views\templates\MovieView.tpl' */
+/* Smarty version 3.1.33, created on 2023-07-04 19:54:04
+  from 'C:\xampp\htdocs\projekt\app\views\templates\PersonView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a472ceddb5d6_45930063',
+  'unifunc' => 'content_64a45cbccb3ab8_58732616',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0f93b30329455463c138835523e8c9b8991e6c10' => 
+    '26f172bc68dcd0d10edee9926acd6c993e1a4053' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieView.tpl',
-      1 => 1688493232,
+      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\PersonView.tpl',
+      1 => 1688493236,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a472ceddb5d6_45930063 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a45cbccb3ab8_58732616 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -37,7 +37,8 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<noscript><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -52,8 +53,9 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 				<!-- Nav -->
 
 				 <nav id="nav">
-				 <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" /></a> 
+
                 <ul class="links">
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" /></a> 
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 movieList">Filmy i Seriale</a></li>
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
@@ -77,25 +79,29 @@ loginShow" class="button primary">Zaloguj</a>
 
 					
 			<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_133005261264a472cedbd242_34479625', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_104872170364a45cbcc9a167_99424352', 'messages');
 ?>
 
 						<!-- Posts -->
 							<section>
 								<article>
-								    <h3 style="color: #ff4eac"> Szczegóły na temat filmu: <h2><?php echo $_smarty_tpl->tpl_vars['movie']->value["title"];?>
+								    <h3 style="color: #ff4eac">Szczegóły na temat osoby: <h2><?php echo $_smarty_tpl->tpl_vars['person']->value["name"];?>
+ <?php echo $_smarty_tpl->tpl_vars['person']->value["surname"];?>
 </h2></h3>
-								    <h4 style="color: #ff4eac">Rok Produkcji:</h4><h3><?php echo $_smarty_tpl->tpl_vars['movie']->value["year"];?>
+								    <h4 style="color: #ff4eac">Rok urodzenia:</h4><h3><?php echo $_smarty_tpl->tpl_vars['person']->value["birthyear"];?>
 </h3>
-									<h4 style="color: #ff4eac">Opis: </h4><h4><?php echo $_smarty_tpl->tpl_vars['movie']->value["description"];?>
+									<h4 style="color: #ff4eac"><?php echo $_smarty_tpl->tpl_vars['person']->value["name"];?>
+ to </h4><h4><?php echo $_smarty_tpl->tpl_vars['person']->value["person_role"];?>
 </h4>
-									<h4 style="color: #ff4eac">Występują: </h4><h4><?php echo $_smarty_tpl->tpl_vars['movie']->value["starring"];?>
+									<h4 style="color: #ff4eac">Filmy z <?php echo $_smarty_tpl->tpl_vars['person']->value["name"];?>
+ <?php echo $_smarty_tpl->tpl_vars['person']->value["surname"];?>
+: </h4><h4><?php echo $_smarty_tpl->tpl_vars['person']->value["starred_in"];?>
 </h4>
 
 
 								</article><br>
 									<a class="button primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-movieList">Powrót</a>
+personList">Powrót</a>
 							<!--
 								<article>
 									<header>
@@ -222,12 +228,12 @@ movieList">Powrót</a>
 	</body>
 </html><?php }
 /* {block 'messages'} */
-class Block_133005261264a472cedbd242_34479625 extends Smarty_Internal_Block
+class Block_104872170364a45cbcc9a167_99424352 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_133005261264a472cedbd242_34479625',
+    0 => 'Block_104872170364a45cbcc9a167_99424352',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

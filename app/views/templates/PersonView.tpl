@@ -1,29 +1,3 @@
-<?php
-/* Smarty version 3.1.33, created on 2023-07-04 21:28:14
-  from 'C:\xampp\htdocs\projekt\app\views\templates\MovieView.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.33',
-  'unifunc' => 'content_64a472ceddb5d6_45930063',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '0f93b30329455463c138835523e8c9b8991e6c10' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieView.tpl',
-      1 => 1688493232,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_64a472ceddb5d6_45930063 (Smarty_Internal_Template $_smarty_tpl) {
-$_smarty_tpl->_loadInheritance();
-$_smarty_tpl->inheritance->init($_smarty_tpl, false);
-?>
 <!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -35,9 +9,8 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 		<title>Precel.pl - najlepsza baza filmów w Polsce</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="{$conf->app_url}/assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
@@ -52,50 +25,54 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 				<!-- Nav -->
 
 				 <nav id="nav">
-				 <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" /></a> 
+
                 <ul class="links">
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-movieList">Filmy i Seriale</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-personList">Aktorzy i Reżyserzy</a></li>
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" {* style="margin-top: 10px; margin-left: 150px" *}/></a> 
+					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
+					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
 				</ul>
-				<?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
-				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-logout" class="button primary">Wyloguj</a>
-			<?php } else { ?>
-				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-loginShow" class="button primary">Zaloguj</a>
-			<?php }?>
+				{if count($conf->roles)>0}
+				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
+			{else}
+				<a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
+			{/if}
 			</nav> 
 
 				<!-- Main -->
 					<div id="main">
-					<?php if (Core\RoleUtils::inRole("1")) {?>
+					{if Core\RoleUtils::inRole("1")}
 					<h5>Zalogowano jako ADMIN</h5>
-					<?php }?>
+					{/if}
 					</form>
 
 					
-			<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_133005261264a472cedbd242_34479625', 'messages');
-?>
+			{block name=messages}
 
+				{if $msgs->isMessage()}
+					<div class="messages bottom-margin">
+						<ul>
+							{foreach $msgs->getMessages() as $msg}
+								{strip}
+									<span msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if}
+										{if $msg->isInfo()}info{/if}">{$msg->text}</span>
+								{/strip}
+							{/foreach}
+						</ul>
+					</div>
+				{/if}
+			
+			{/block}
 						<!-- Posts -->
 							<section>
 								<article>
-								    <h3 style="color: #ff4eac"> Szczegóły na temat filmu: <h2><?php echo $_smarty_tpl->tpl_vars['movie']->value["title"];?>
-</h2></h3>
-								    <h4 style="color: #ff4eac">Rok Produkcji:</h4><h3><?php echo $_smarty_tpl->tpl_vars['movie']->value["year"];?>
-</h3>
-									<h4 style="color: #ff4eac">Opis: </h4><h4><?php echo $_smarty_tpl->tpl_vars['movie']->value["description"];?>
-</h4>
-									<h4 style="color: #ff4eac">Występują: </h4><h4><?php echo $_smarty_tpl->tpl_vars['movie']->value["starring"];?>
-</h4>
+								    <h3 style="color: #ff4eac">Szczegóły na temat osoby: <h2>{$person["name"]} {$person["surname"]}</h2></h3>
+								    <h4 style="color: #ff4eac">Rok urodzenia:</h4><h3>{$person["birthyear"]}</h3>
+									<h4 style="color: #ff4eac">{$person["name"]} to </h4><h4>{$person["person_role"]}</h4>
+									<h4 style="color: #ff4eac">Filmy z {$person["name"]} {$person["surname"]}: </h4><h4>{$person["starred_in"]}</h4>
 
 
 								</article><br>
-									<a class="button primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-movieList">Powrót</a>
+									<a class="button primary" href="{$conf->action_root}personList">Powrót</a>
 							<!--
 								<article>
 									<header>
@@ -197,64 +174,13 @@ movieList">Powrót</a>
 			</div>
 
 		<!-- Scripts -->
-			<?php echo '<script'; ?>
- src="assets/js/jquery.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/jquery.scrollex.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/jquery.scrolly.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/browser.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/util.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/main.js"><?php echo '</script'; ?>
->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
-</html><?php }
-/* {block 'messages'} */
-class Block_133005261264a472cedbd242_34479625 extends Smarty_Internal_Block
-{
-public $subBlocks = array (
-  'messages' => 
-  array (
-    0 => 'Block_133005261264a472cedbd242_34479625',
-  ),
-);
-public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
-?>
-
-
-				<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
-					<div class="messages bottom-margin">
-						<ul>
-							<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-?>
-								<span msg <?php if ($_smarty_tpl->tpl_vars['msg']->value->isError()) {?>error<?php }?> <?php if ($_smarty_tpl->tpl_vars['msg']->value->isWarning()) {?>warning<?php }
-if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>info<?php }?>"><?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-</span>
-							<?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-						</ul>
-					</div>
-				<?php }?>
-			
-			<?php
-}
-}
-/* {/block 'messages'} */
-}
+</html>

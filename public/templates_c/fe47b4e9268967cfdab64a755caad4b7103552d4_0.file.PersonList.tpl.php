@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 16:51:21
+/* Smarty version 3.1.33, created on 2023-07-04 21:23:26
   from 'C:\xampp\htdocs\projekt\app\views\templates\PersonList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a431e9e784f9_94599848',
+  'unifunc' => 'content_64a471ae378871_42685248',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fe47b4e9268967cfdab64a755caad4b7103552d4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\PersonList.tpl',
-      1 => 1688482274,
+      1 => 1688498603,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a431e9e784f9_94599848 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a471ae378871_42685248 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 
 <!--
@@ -65,7 +65,7 @@ function content_64a431e9e784f9_94599848 (Smarty_Internal_Template $_smarty_tpl)
 
                     <header id="header">
 
-                        <a href="MainView.tpl" class="logo">Precel</a>
+                        <a href="MainView" class="logo">Precel</a>
 
                     </header>
 
@@ -77,7 +77,7 @@ function content_64a431e9e784f9_94599848 (Smarty_Internal_Template $_smarty_tpl)
                 <nav id="nav">
 
 
-
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" /></a> 
 
                 <ul class="links">
 
@@ -112,7 +112,7 @@ loginShow" class="button primary">Zaloguj</a>
 
                     <?php if (Core\RoleUtils::inRole("1")) {?>
 
-                    <h5>Zalogowano jako ADMIN<br><br><a class="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+                    <h5>Zalogowano jako ADMIN<br><br><a class="button primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 personNew">Dodaj nowego aktora/reżysera</a></h5>
 
                     <?php }?>
@@ -120,17 +120,7 @@ personNew">Dodaj nowego aktora/reżysera</a></h5>
                     <form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 personSearch">
 
-                    <legend>Wyszukaj osobę</legend>
-
-                     <fieldset>                            
-
-                       <input type="text" placeholder="wpisz nazwisko" name="sf_surname"/>
-
-                       <button type="submit" class="pure-button pure-button-primary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-personSearch">Filtruj</button>
-
-                     </fieldset>
-
+                  
                    </form>
 
                         <!-- Posts -->
@@ -166,7 +156,9 @@ personDelete/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_person'];?>
 ">Usuń</a>
 							    	<?php }?>
 
-
+                                    <a class="button primary small" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+personView/<?php echo $_smarty_tpl->tpl_vars['p']->value['id_person'];?>
+">Zobacz szczegóły</a>
 
                                 </article>
 
@@ -220,7 +212,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
                     <div id="copyright">
 
-                        <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                        <ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 
                     </div>
 

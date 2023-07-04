@@ -20,9 +20,9 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css" />
 
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <noscript><link rel="stylesheet" href="{$conf->app_url}/assets/css/noscript.css" /></noscript>
 
     </head>
 
@@ -36,12 +36,9 @@
             <div id="wrapper" class="fade-in">
 
 
-
-
                 <!-- Header -->
 
                     <header id="header">
-
                         <a href="MainView" class="logo">Precel</a>
 
                     </header>
@@ -60,7 +57,7 @@
 
 
                 <ul class="links">
-
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" {* style="margin-top: 10px; margin-left: 150px" *}/></a> 
                     <li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
 
                     <li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
@@ -88,7 +85,7 @@
 
                     {if Core\RoleUtils::inRole("1")}
 
-                    <h5>Zalogowano jako ADMIN <br><br><a class="button" href="{$conf->action_root}movieNew">dodaj nowy film</a></h5>
+                    <h5>Zalogowano jako ADMIN <br><br><a class="button primary" href="{$conf->action_root}movieNew">dodaj nowy film</a></h5>
 
                     {/if}
 
@@ -96,13 +93,13 @@
 
                     <form class="pure-form pure-form-stacked" action="{$conf->action_url}movieSearch">
 
-                     <legend>Wyszukaj film</legend>
+                     <h5>Wyszukaj film</h5>
 
                       <fieldset>                            
 
-                        <input type="text" placeholder="tytuł filmu" name="sf_title"/>
+                        <input type="text" placeholder="tytuł filmu" id="title" name="title"/>
 
-                        <button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+                        <button type="submit" class="button primary">Filtruj</button>
 
                       </fieldset>
 
@@ -118,7 +115,7 @@
 
                                 <article>
 
-                                    <h5 class="major">{$m["year"]}</h5>
+                                   {* <h5 class="major">{$m["year"]}</h5> *}
 
                                     <h3 class="major">{$m["title"]}</h3>
 
@@ -142,7 +139,7 @@
 
 
 
-                                    <a class="button primary small" color: #fd44bf href="{$conf->action_url}movieView/{$m['id_movie']}">Zobacz szczegóły</a>
+                                    <a class="button primary small" href="{$conf->action_url}movieView/{$m['id_movie']}">Zobacz szczegóły</a>
 
 
 
@@ -344,7 +341,7 @@
 
                     <div id="copyright">
 
-                        <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                        <ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 
                     </div>
 

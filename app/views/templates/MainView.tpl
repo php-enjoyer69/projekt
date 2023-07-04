@@ -38,20 +38,28 @@
 				<!-- Nav -->
 				<nav id="nav">
                 <ul class="links">
-					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
-					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
+                <a class="image"><img src="images/pretzelbirthday.png" height=200 alt="" {* style="margin-top: 10px; margin-left: 150px" *}/></a> 
+                    <li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
 
-				{if count($conf->roles)>0}
-				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
-			{else}
-				<a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
-			{/if}
+                    <li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
+
+                </ul>
+
+                {if count($conf->roles)>0}
+
+                <a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
+
+            {else}
+
+                <a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
+
+            {/if}
 			</nav> 
 
 				<!-- Main -->
 					<div id="main">
 					{if Core\RoleUtils::inRole("1")}
-					<h5>Zalogowano jako ADMIN</span></h5>
+						<h5>Zalogowano jako ADMIN</h5>
 					{/if}
 						<!-- Featured Post -->
 							<article class="post featured">
@@ -60,8 +68,8 @@
 									idealnego filmu?</a></h2>
 									<a class="image"><img src="images/pretzelbirthday.png" alt=""  height=320 width=250 /></a>
 									<br><br>
-									<sup>Precel.pl to strona stworzona do szukania i dzielenia się opiniami na temat najróżniejszych filmów i seriali,
-									dla każdej grupy wiekowej. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem</sup>
+									<sup>Precel.pl to strona stworzona do odkrywania nowych filmów
+									dla każdej grupy wiekowej oraz szukania informacji na temat aktorów i reżyserów. Dzięki naszej bazie wybór idealnego filmu na romantyczny wieczór z drugą połówką nie będzie już problemem ♥</sup>
 								</header>
 								
 								<ul class="actions special">
@@ -73,7 +81,7 @@
 
 				<!-- Copyright -->
 					<div id="copyright">
-						<ul><li>&copy; Precel.pl</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+						<ul><li>&copy; Precel</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 					</div>
 
 			</div>

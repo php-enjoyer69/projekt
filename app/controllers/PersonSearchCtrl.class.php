@@ -18,7 +18,7 @@ class PersonSearchCtrl {
     }
 
     public function validate() {
-        $this->form->surname = ParamUtils::getFromRequest('sf_surname');
+        $this->form->surname = ParamUtils::getFromRequest('surname');
 
         return !App::getMessages()->isError();
     }
@@ -46,6 +46,8 @@ class PersonSearchCtrl {
                 "surname",
                 "birthdate",
                 "portrait",
+                "person_role",
+                "starred_in",
                     ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

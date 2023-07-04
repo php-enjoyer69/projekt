@@ -19,12 +19,13 @@ Utils::addRoute('registerShow',  'RegisterCtrl');
 Utils::addRoute('register',      'RegisterCtrl');
 
 Utils::addRoute('movieSearch',    'MovieSearchCtrl');
-Utils::addRoute('personSearch',    'PersonSearchCtrl');
+Utils::addRoute('personSearch',   'PersonSearchCtrl');
 
 Utils::addRoute('movieList',    'MovieListCtrl');
 Utils::addRoute('personList',   'PersonListCtrl');
 
 Utils::addRoute('movieView',     'MovieViewCtrl');
+Utils::addRoute('personView',    'PersonViewCtrl');
 
 Utils::addRoute('movieNew',     'MovieEditCtrl');
 Utils::addRoute('movieEdit',    'MovieEditCtrl');

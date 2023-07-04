@@ -57,9 +57,9 @@ class MovieEditCtrl
 
             'required' => true,
 
-            'required_message' => 'Imię jest wymagane',
+            'required_message' => 'Tytuł jest wymagany',
 
-            'validator_message' => 'Imię jest wymagane'
+            'validator_message' => 'Tytuł jest wymagany'
 
         ]);
 
@@ -74,9 +74,9 @@ class MovieEditCtrl
 
             'required' => true,
 
-            'required_message' => 'Nazwisko jest wymagane',
+            'required_message' => 'Opis jest wymagany',
 
-            'validator_message' => 'Nazwisko jest wymagane'
+            'validator_message' => 'Opis jest wymagany'
 
         ]);
 
@@ -94,6 +94,19 @@ class MovieEditCtrl
 
         ]);
 
+        $v = new Validator();
+
+        $this->form->starring = $v->validateFromPost("starring", [
+
+            'trim' => true,
+
+            'required' => true,
+
+            'required_message' => 'starring',
+
+            'validator_message' => 'starring'
+
+        ]);
 
         $date = $v->validateFromPost('year', [
 
@@ -166,6 +179,8 @@ class MovieEditCtrl
                 $this->form->year = $record['year'];
 
                 $this->form->cover = $record['cover'];
+
+                $this->form->starring = $record['starring'];
 
             } catch (\PDOException $e) {
 
@@ -253,7 +268,9 @@ class MovieEditCtrl
 
                         "year" => $this->form->year,
 
-                        "cover" => $this->form->cover
+                        "cover" => $this->form->cover,
+
+                        "starring" => $this->form->starring
 
                     ]);
 
@@ -270,7 +287,9 @@ class MovieEditCtrl
 
                         "year" => $this->form->year,
 
-                        "cover" => $this->form->cover
+                        "cover" => $this->form->cover,
+
+                        "starring" => $this->form->starring
 
                     ], [
 
