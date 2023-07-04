@@ -8,11 +8,10 @@ use core\ParamUtils;
 use app\forms\MovieSearchForm;
 
 class MovieListCtrl
-{
+{ 
     private $records; //rekordy pobrane z bazy danych
 
-    public function action_movieList()
-    {
+    public function action_movieList(){
 
 
         try {
@@ -26,6 +25,6 @@ class MovieListCtrl
 
         App::getSmarty()->assign('movie', $this->records); // lista rekordów z bazy danych
         App::getSmarty()->display('MovieList.tpl');
-    }
 
+}
 }

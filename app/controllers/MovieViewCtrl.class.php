@@ -5,18 +5,34 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\MovieSearchForm;
+use app\forms\MovieEditForm;
 
 class MovieViewCtrl
-{
-    private $records; //rekordy pobrane z bazy danych
+{  
+
+    private $record;
+    private $form; //rekordy pobrane z bazy danych
+
+    public function __construct()
+    {
+        $this->form = new MovieEditForm();
+    }
 
     public function action_movieView()
     {
 
+        $this->form->id_movie = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
 
-        try {
-            $this->records = App::getDB()->select("movie", "*");
+            try {
+                $this->record = App::getDB()->get("movie", [
+                    "title",
+                    "year",
+                    "description",
+                    "cover",
+                    "starring"
+                ], [
+                    "id_movie" => $this->form->id_movie
+                ]);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)
@@ -24,7 +40,7 @@ class MovieViewCtrl
         }
         // 4. wygeneruj widok
 
-        App::getSmarty()->assign('movie', $this->records); // lista rekordów z bazy danych
+        App::getSmarty()->assign('movie', $this->record); // lista rekordów z bazy danych
         App::getSmarty()->display('MovieView.tpl');
     }
 

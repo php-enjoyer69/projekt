@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 12:50:14
-  from 'C:\xampp\htdocs\projekt\app\views\templates\MovieEdit.tpl' */
+/* Smarty version 3.1.33, created on 2023-07-04 12:01:23
+  from 'C:\xampp\htdocs\projekt\app\views\templates\PersonEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a3f9668a27a1_74328909',
+  'unifunc' => 'content_64a3edf3460b86_42016395',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8479ddc2bff8cc1583cc3566d15a21b846a3141d' => 
+    '1777871e61427553c35e703b1fc92b4ff35bdeaf' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieEdit.tpl',
-      1 => 1688467811,
+      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\PersonEdit.tpl',
+      1 => 1688464881,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a3f9668a27a1_74328909 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a3edf3460b86_42016395 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -57,7 +57,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <nav>
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_43550892664a3f966887eb7_57903691', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_172096808964a3edf344bcc4_96796664', 'messages');
 ?>
 
 
@@ -76,7 +76,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_43550892664a3f9668
 
             <div class="inner">
 
-                <h2>edycja/dodawanie filmów</h2>
+                <h2>edycja/dodawanie osób</h2>
 
             </div>
 
@@ -85,63 +85,55 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_43550892664a3f9668
         <div class="bottom-margin form-container">
 
             <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-movieSave" method="post" class="pure-form pure-form-aligned">
+personSave" method="post" class="pure-form pure-form-aligned">
 
-            <input type="hidden" name="id_movie" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_movie;?>
+            <input type="hidden" name="id_person" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_person;?>
 ">
 
                 <fieldset>
 
-                    <div class="pure-control-group">
+                    <div class="pure-control-group"> <br>
 
-                        <label for="title">tytuł</label>
+                        <input id="name" type="text" placeholder="imie" name="name"
 
-                        <input id="name" type="text" placeholder="title" name="title"
-
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->title;?>
+                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->name;?>
 ">
 
                     </div>
 
-                    <div class="pure-control-group">
+                    <div class="pure-control-group"> <br>
 
-                        <label for="year">data</label>
+                        <input id="surname" type="text" placeholder="imie" name="surname"
 
-                        <input id="year" type="text" placeholder="data" name="year"
-
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->year;?>
+                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->surname;?>
 ">
 
                     </div>
 
-                    <div class="pure-control-group">
+                    <div class="pure-control-group"> <br>
 
-                        <label for="description">opis</label>
+                        <input id="birthyear" type="text" placeholder="rok urodzenia" name="birthyear"
 
-                        <input id="description" type="text" placeholder="opis" name="description"
-
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->description;?>
+                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->birthyear;?>
 ">
 
                     </div>
 
-                    <div class="pure-control-group">
+					<div class="pure-control-group"> <br>
 
-                        <label for="title">tytuł</label>
+					<input id="portrait" type="text" placeholder="portret osoby" name="portrait"
 
-                        <input id="cover" type="text" placeholder="obrazek" name="cover"
-
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->cover;?>
+						value="<?php echo $_smarty_tpl->tpl_vars['form']->value->portrait;?>
 ">
 
-                    </div>
+				</div>
 
                     <div class="pure-controls" style="margin-top: 20px;">
 
                         <input type="submit" class="button primary" value="Zapisz" />
 
                         <a class="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-movieList">Powrót</a>
+personList">Powrót</a>
 
                     </div>
 
@@ -191,15 +183,14 @@ movieList">Powrót</a>
 
 
 
-</html>
-<?php }
+</html><?php }
 /* {block 'messages'} */
-class Block_43550892664a3f966887eb7_57903691 extends Smarty_Internal_Block
+class Block_172096808964a3edf344bcc4_96796664 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_43550892664a3f966887eb7_57903691',
+    0 => 'Block_172096808964a3edf344bcc4_96796664',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

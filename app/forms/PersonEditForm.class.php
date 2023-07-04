@@ -7,4 +7,5 @@ class PersonEditForm {
 	public $name;
     public $surname;
 	public $birthyear;
+    public $portrait;
 }

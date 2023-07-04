@@ -18,6 +18,9 @@ Utils::addRoute('logout',        'LoginCtrl');
 Utils::addRoute('registerShow',  'RegisterCtrl');
 Utils::addRoute('register',      'RegisterCtrl');
 
+Utils::addRoute('movieSearch',    'MovieSearchCtrl');
+Utils::addRoute('personSearch',    'PersonSearchCtrl');
+
 Utils::addRoute('movieList',    'MovieListCtrl');
 Utils::addRoute('personList',   'PersonListCtrl');
 

@@ -8,4 +8,5 @@ class MovieEditForm {
     public $year;
 	public $description;
     public $cover;
+    public $starring;
 }
