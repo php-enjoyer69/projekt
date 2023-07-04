@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-03 17:29:17
+/* Smarty version 3.1.33, created on 2023-07-04 09:24:59
   from 'C:\xampp\htdocs\projekt\app\views\templates\PersonList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a2e94d28cb51_82305737',
+  'unifunc' => 'content_64a3c94b76eb01_18681995',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fe47b4e9268967cfdab64a755caad4b7103552d4' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\PersonList.tpl',
-      1 => 1688398152,
+      1 => 1688455497,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a2e94d28cb51_82305737 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a3c94b76eb01_18681995 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -47,21 +47,27 @@ function content_64a2e94d28cb51_82305737 (Smarty_Internal_Template $_smarty_tpl)
 
 				<!-- Nav -->
 				<nav id="nav">
-				<ul class="links">
+
+                <ul class="links">
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MainView">Strona główna</a></li>
+movieList">Filmy i Seriale</a></li>
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MovieList">Filmy i Seriale</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-PersonList">Aktorzy i Reżyserzy</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-login">Wyloguj</a></li>
+personList">Aktorzy i Reżyserzy</a></li>
 				</ul>
-			</nav>
+				<?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
+				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout" class="button primary">Wyloguj</a>
+			<?php } else { ?>
+				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+loginShow" class="button primary">Zaloguj</a>
+			<?php }?>
+			</nav> 
 
 				<!-- Main -->
 					<div id="main">
-
+					<?php if (Core\RoleUtils::inRole("1")) {?>
+					<h5>Zalogowano jako ADMIN</span></h5>
+					<?php }?>
 						<!-- Posts -->
 							<section class="posts">
 							<?php

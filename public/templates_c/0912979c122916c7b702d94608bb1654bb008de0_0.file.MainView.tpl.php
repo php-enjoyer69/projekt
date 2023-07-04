@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-03 18:43:39
+/* Smarty version 3.1.33, created on 2023-07-04 09:26:12
   from 'C:\xampp\htdocs\projekt\app\views\templates\MainView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a2fabb037203_56828981',
+  'unifunc' => 'content_64a3c994d90404_47932021',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0912979c122916c7b702d94608bb1654bb008de0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MainView.tpl',
-      1 => 1688402615,
+      1 => 1688455563,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a2fabb037203_56828981 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a3c994d90404_47932021 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -43,7 +43,7 @@ function content_64a2fabb037203_56828981 (Smarty_Internal_Template $_smarty_tpl)
 				<!-- Intro -->
 					<div id="intro">
 						<h1>To jest<br />
-						PRECEL.pl</h1>
+						<h1 style="color: #ff4eac">PRECEL.pl</h1></h1>
 						<p>Najlepsza baza filmowa z preclem w Polsce</p>
 						<div>
 						<a href="#" class="image "><img src="images/PretzelCharacter.png" alt=""/></a>
@@ -60,26 +60,27 @@ MainView" class="logo">Precel</a>
 					</header>
 
 				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MainView">Strona główna</a></li>
-							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MovieList">Filmy i Seriale</a></li>
-							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-PersonList">Aktorzy i Reżyserzy</a></li>
+				<nav id="nav">
+                <ul class="links">
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+movieList">Filmy i Seriale</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+personList">Aktorzy i Reżyserzy</a></li>
 
-
-							<ul class="icons">
-							<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-logout">Wyloguj</a></li>
-							</ul>
-						</ul>
-					</nav>
+				<?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
+				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+logout" class="button primary">Wyloguj</a>
+			<?php } else { ?>
+				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+loginShow" class="button primary">Zaloguj</a>
+			<?php }?>
+			</nav> 
 
 				<!-- Main -->
 					<div id="main">
-
+					<?php if (Core\RoleUtils::inRole("1")) {?>
+					<h5>Zalogowano jako ADMIN</span></h5>
+					<?php }?>
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
@@ -93,7 +94,7 @@ logout">Wyloguj</a></li>
 								
 								<ul class="actions special">
 									<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MovieList" class="button large">Przeglądaj filmy i seriale</a></li>
+movieList" class="button large">Przeglądaj filmy i seriale</a></li>
 								</ul>
 							</article>
 

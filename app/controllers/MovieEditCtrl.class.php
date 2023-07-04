@@ -4,85 +4,81 @@ namespace app\controllers;
 
 use core\App;
 use core\Utils;
-use core\RoleUtils;
 use core\ParamUtils;
+use core\Validator;
 use app\forms\MovieEditForm;
 
-class MovieEditCtrl {
+class MovieEditCtrl
+{
 
     private $form; //dane formularza
 
-    public function __construct() {
-        //stworzenie potrzebnych obiektów
+    public function __construct()
+    {
         $this->form = new MovieEditForm();
     }
 
-    // Walidacja danych przed zapisem (nowe dane lub edycja).
-    public function validateSave() {
-        //0. Pobranie parametrów z walidacją
-        $this->form->id_movie = ParamUtils::getFromRequest('id_movie', true, 'Błędne wywołanie aplikacji');
-        $this->form->title = ParamUtils::getFromRequest('title', true, 'Błędne wywołanie aplikacji');
-        $this->form->year = ParamUtils::getFromRequest('year', true, 'Błędne wywołanie aplikacji');
-        $this->form->description = ParamUtils::getFromRequest('description', true, 'Błędne wywołanie aplikacji');
-        $this->form->cover = ParamUtils::getFromRequest('cover', true, 'Błędne wywołanie aplikacji');
+    public function validateSave()
+    {
+        $this->form->id_movie = ParamUtils::getFromPost('id_movie', true, 'Błędne wywołanie aplikacji');
 
-        if (App::getMessages()->isError())
-            return false;
+        $v = new Validator();
+        $this->form->title = $v->validateFromPost("title", [
+            'trim' => true,
+            'required' => true,
+            'required_message' => 'Tytuł jest wymagany',
+            'validator_message' => 'Tytuł jest wymagany'
+        ]);
+        
+        $date = $v->validateFromPost('year', [
+            'trim' => true,
+            'required' => true,
+            'required_message' => "Wprowadź rok",
+            'date_format' => 'Y',
+            'validator_message' => "Niepoprawny format daty. Przykład: 2137"
+        ]);
 
-        // 1. sprawdzenie czy wartości wymagane nie są puste
-        if (empty(trim($this->form->id_movie))) {
-            Utils::addErrorMessage('Uzupełnij ID');
-        }
-        if (empty(trim($this->form->title))) {
-            Utils::addErrorMessage('Uzupełnij tytuł filmu');
-        }
-        if (empty(trim($this->form->year))) {
-            Utils::addErrorMessage('Uzupełnij rok produkcji');
-        }
-        if (empty(trim($this->form->description))) {
-            Utils::addErrorMessage('Opis filmu nie może być pusty');
-        }
-        if (empty(trim($this->form->cover))) {
-            Utils::addErrorMessage('Film musi mieć obrazek');
-        }
+        if ($v->isLastOK()) {
+            $this->form->year = $date->format('Y');
 
-        if (App::getMessages()->isError())
-            return false;
+        $v = new Validator();
+        $this->form->description = $v->validateFromPost("description", [
+            'trim' => true,
+            'required' => true,
+            'required_message' => 'Opis jest wymagany',
+            'validator_message' => 'Opis jest wymagany'
+        ]);
 
-        // 2. sprawdzenie poprawności przekazanych parametrów
-
-        $d = \DateTime::createFromFormat('Y', $this->form->year);
-        if ($d === false) {
-            Utils::addErrorMessage('Zły format daty. Wpisz tylko rok produkcji, przykład: 2001');
+        $v = new Validator();
+        $this->form->cover = $v->validateFromPost("cover", [
+            'trim' => true,
+            'required' => true,
+            'required_message' => 'Obrazek jest wymagany',
+            'validator_message' => 'Obrazek jest wymagany'
+        ]);
         }
-
+        return !App::getMessages()->isError();
+    }
+    public function validateEdit()
+    {
+        $this->form->id_movie = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji 2');
         return !App::getMessages()->isError();
     }
 
-    //validacja danych przed wyswietleniem do edycji
-    public function validateEdit() {
-        //pobierz parametry na potrzeby wyswietlenia danych do edycji
-        //z widoku listy osób (parametr jest wymagany)
-        $this->form->id_movie = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
-        return !App::getMessages()->isError();
-    }
-
-    public function action_movieNew() {
+    public function action_movieNew()
+    {
         $this->generateView();
     }
 
-    //wysiweltenie rekordu do edycji wskazanego parametrem 'id'
-    public function action_movieEdit() {
-        // 1. walidacja id osoby do edycji
+    public function action_movieEdit()
+    {
         if ($this->validateEdit()) {
             try {
-                // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
                 $record = App::getDB()->get("movie", "*", [
                     "id_movie" => $this->form->id_movie
                 ]);
-                // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
                 $this->form->id_movie = $record['id_movie'];
-                $this->form->title= $record['title'];
+                $this->form->title = $record['title'];
                 $this->form->year = $record['year'];
                 $this->form->description = $record['description'];
                 $this->form->cover = $record['cover'];
@@ -94,12 +90,11 @@ class MovieEditCtrl {
             }
         }
 
-        // 3. Wygenerowanie widoku
         $this->generateView();
     }
 
-    public function action_movieDelete() {
-        // 1. walidacja id osoby do usuniecia
+    public function action_movieDelete()
+    {
         if ($this->validateEdit()) {
 
             try {
@@ -107,71 +102,57 @@ class MovieEditCtrl {
                 App::getDB()->delete("movie", [
                     "id_movie" => $this->form->id_movie
                 ]);
-                Utils::addInfoMessage('Rekord usunięty');
+                Utils::addInfoMessage('record deleted');
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas usuwania');
+                Utils::addErrorMessage('unexspected deleting record error');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
         }
-
-        // 3. Przekierowanie na stronę listy filmów
-        App::getRouter()->forwardTo('MovieList');
+        App::getRouter()->redirectTo('movieList');
     }
 
-    public function action_movieSave() {
+    public function action_movieSave()
+    {
 
-        // 1. Walidacja danych formularza (z pobraniem)
         if ($this->validateSave()) {
-            // 2. Zapis danych w bazie
             try {
 
-                //2.1 Nowy rekord
                 if ($this->form->id_movie == '') {
-                    //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("movie");
-                    if ($count <= 100) {
-                        App::getDB()->insert("movie", [
-                            "id_movie" => $this->form->id_movie,
-                            "title" => $this->form->title,
-                            "year" => $this->form->year,
-                            "description" => $this->form->description,
-                            "cover" => $this->form->cover,
-                        ]);
-                    } else { //za dużo rekordów
-                        // Gdy za dużo rekordów to pozostań na stronie
-                        Utils::addInfoMessage('Uwaga: za dużo rekordów, maks. 100. Usuń inny rekord żeby stworzyć nowy');
-                        $this->generateView(); //pozostań na stronie edycji
-                        exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
-                    }
+                    App::getDB()->insert("movie", [
+                        "id_movie" => $this->form->id_movie,
+                        "title" => $this->form->title,
+                        "year" => $this->form->year,
+                        "description" => $this->form->description,
+                        "cover" => $this->form->cover,
+                    ]);
+
                 } else {
-                    //2.2 Edycja rekordu o danym ID
                     App::getDB()->update("movie", [
                         "title" => $this->form->title,
                         "year" => $this->form->year,
                         "description" => $this->form->description,
                         "cover" => $this->form->cover
-                            ], [
+                    ], [
                         "id_movie" => $this->form->id_movie
                     ]);
                 }
-                Utils::addInfoMessage('Zapisano');
+                Utils::addInfoMessage('record saved');
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu');
+                Utils::addErrorMessage('unexpected saving record error');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
 
-            // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-            App::getRouter()->forwardTo('MovieList');
+            App::getRouter()->forwardTo('movieList');
         } else {
-            // 3c. Gdy błąd walidacji to pozostań na stronie
             $this->generateView();
         }
     }
 
-    public function generateView() {
-        App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
+    public function generateView()
+    {
+        App::getSmarty()->assign('form', $this->form);
         App::getSmarty()->display('MovieEdit.tpl');
     }
 

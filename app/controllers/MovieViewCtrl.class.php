@@ -5,18 +5,18 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
+use app\forms\MovieSearchForm;
 
-class PersonListCtrl
+class MovieViewCtrl
 {
     private $records; //rekordy pobrane z bazy danych
 
-    public function action_personList()
+    public function action_movieView()
     {
 
 
         try {
-            $this->records = App::getDB()->select("person", "*");
-        //  $this->records = App::getDB()->select("role", "*");
+            $this->records = App::getDB()->select("movie", "*");
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)
@@ -24,8 +24,8 @@ class PersonListCtrl
         }
         // 4. wygeneruj widok
 
-        App::getSmarty()->assign('person', $this->records); // lista rekordów z bazy danych
-        App::getSmarty()->display('PersonList.tpl');
+        App::getSmarty()->assign('movie', $this->records); // lista rekordów z bazy danych
+        App::getSmarty()->display('MovieView.tpl');
     }
 
 }

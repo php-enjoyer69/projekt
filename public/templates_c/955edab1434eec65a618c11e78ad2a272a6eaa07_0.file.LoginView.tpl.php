@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-03 19:46:08
+/* Smarty version 3.1.33, created on 2023-07-04 09:07:07
   from 'C:\xampp\htdocs\projekt\app\views\templates\LoginView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a30960146e71_05085176',
+  'unifunc' => 'content_64a3c51bc99451_16605857',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '955edab1434eec65a618c11e78ad2a272a6eaa07' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\LoginView.tpl',
-      1 => 1688406356,
+      1 => 1688454407,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a30960146e71_05085176 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a3c51bc99451_16605857 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -28,8 +28,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <!DOCTYPE HTML>
 
 <head>
-		<title>rejstracja <a class="image"><img src="images/pretzelcharacter.png" height=65 width=50 alt=""/></a></title>
-		<meta charset="utf-8" />
+		<title>Logowanie - Precel.pl</title>		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/css/main1.css" />
@@ -79,7 +78,7 @@ register">Zarejestruj się</a>
             </form>    
             </header>
 			<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_142126355864a30960121493_70044033', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_148363152064a3c51bc8a6d8_71065317', 'messages');
 ?>
 
 				</div>
@@ -88,12 +87,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_142126355864a30960
 		</div>
 </div><?php }
 /* {block 'messages'} */
-class Block_142126355864a30960121493_70044033 extends Smarty_Internal_Block
+class Block_148363152064a3c51bc8a6d8_71065317 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_142126355864a30960121493_70044033',
+    0 => 'Block_148363152064a3c51bc8a6d8_71065317',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

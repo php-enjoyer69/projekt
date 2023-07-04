@@ -51,7 +51,7 @@ class LoginCtrl
                     "pass" => $pass
                 ]
             ]);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());

@@ -20,7 +20,7 @@
 				<!-- Intro -->
 					<div id="intro">
 						<h1>To jest<br />
-						PRECEL.pl</h1>
+						<h1 style="color: #ff4eac">PRECEL.pl</h1></h1>
 						<p>Najlepsza baza filmowa z preclem w Polsce</p>
 						<div>
 						<a href="#" class="image "><img src="images/PretzelCharacter.png" alt=""/></a>
@@ -36,22 +36,23 @@
 					</header>
 
 				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
-							<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
-							<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
+				<nav id="nav">
+                <ul class="links">
+					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
+					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
 
-
-							<ul class="icons">
-							<li><a href="{$conf->action_url}logout">Wyloguj</a></li>
-							</ul>
-						</ul>
-					</nav>
+				{if count($conf->roles)>0}
+				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
+			{else}
+				<a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
+			{/if}
+			</nav> 
 
 				<!-- Main -->
 					<div id="main">
-
+					{if Core\RoleUtils::inRole("1")}
+					<h5>Zalogowano jako ADMIN</span></h5>
+					{/if}
 						<!-- Featured Post -->
 							<article class="post featured">
 								<header class="major">
@@ -64,7 +65,7 @@
 								</header>
 								
 								<ul class="actions special">
-									<li><a href="{$conf->action_root}MovieList" class="button large">Przeglądaj filmy i seriale</a></li>
+									<li><a href="{$conf->action_root}movieList" class="button large">Przeglądaj filmy i seriale</a></li>
 								</ul>
 							</article>
 

@@ -22,56 +22,53 @@
 				<p>Uzupełnij pola
 				<p>
 			</div>
+
+			{block name=messages}
+
+				{if $msgs->isMessage()}
+					<div class="messages bottom-margin">
+						<ul>
+							{foreach $msgs->getMessages() as $msg}
+								{strip}
+									<span msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if}
+										{if $msg->isInfo()}info{/if}">{$msg->text}</span>
+								{/strip}
+							{/foreach}
+						</ul>
+					</div>
+				{/if}
+			
+			{/block}
+			
 		</header>
 		<div class="bottom-margin form-container">
-			<form action="{$conf->action_root}movieNew" method="post" class="pure-form pure-form-aligned">
-				<input type="hidden" name="id_movie" value="{$form->id_movie}">
+			<form action="{$conf->action_root}movieSave" method="post" class="pure-form pure-form-aligned">
+				<input type="hidden" name='id_movie' value='{$form->id_movie}'>
 				<fieldset>
 					
 					<div class="pure-control-group">
-						<label for="title">tytuł</label>
 						<input id="title" type="text" placeholder="tytuł filmu" name="title"
 							value="{$form->title}">
-					</div>
+					</div><br>
 					<div class="pure-control-group">
-						<label for="year">rok produkcji</label>
 						<input id="year" type="text" placeholder="rok produkcji" name="year"
 							value="{$form->year}">
-                    </div>
+                    </div><br>
 						<div class="pure-control-group">
-						<label for="year">opis filmu</label>
 						<input id="description" type="text" placeholder="opis filmu" name="description"
 							value="{$form->description}">
-					</div>
+					</div><br>
 					<div class="pure-control-group">
-					<label for="cover">opis filmu</label>
 					<input id="cover" type="text" placeholder="obrazek filmu" name="cover"
 						value="{$form->cover}">
-				    </div>
+				    </div><br>
 					<div class="pure-controls" style="margin-top: 20px;">
 						<a class="button primary"href="{$conf->action_root}movieSave">Zapisz</a>
-						<a class="button" href="{$conf->action_root}MovieList">Powrót</a>
+						<a class="button" href="{$conf->action_root}movieList">Powrót</a>
 					</div>
 				</fieldset>
 			</form>
 		</div>
-
-		{block name=messages}
-
-			{if $msgs->isMessage()}
-				<div class="messages bottom-margin">
-					<ul>
-						{foreach $msgs->getMessages() as $msg}
-							{strip}
-								<span msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if}
-									{if $msg->isInfo()}info{/if}">{$msg->text}</span>
-							{/strip}
-						{/foreach}
-					</ul>
-				</div>
-			{/if}
-
-		{/block}
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>

@@ -1,27 +1,4 @@
-<?php
-/* Smarty version 3.1.33, created on 2023-06-11 21:05:57
-  from 'C:\xampp\htdocs\projekt\app\views\templates\MoviesView.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.33',
-  'unifunc' => 'content_64861b1593d623_17449111',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    '29353c752518fcabbd5559df3689f7b799ecba2b' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MoviesView.tpl',
-      1 => 1686510354,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_64861b1593d623_17449111 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
@@ -42,24 +19,52 @@ function content_64861b1593d623_17449111 (Smarty_Internal_Template $_smarty_tpl)
 
 				<!-- Header -->
 					<header id="header">
-						<a href="MainView.tpl" class="logo">Precel</a>
+						<a href="MainView" class="logo">Precel</a>
 					</header>
 
 				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="MainView.tpl">Strona główna</a></li>
-							<li><a href="MoviesView.tpl">Filmy i Seriale</a></li>
-							<li><a href="ActorsView.tpl">Aktorzy i Reżyserzy</a></li>
-							<li><a href="LoginView.tpl">Wyloguj</a></li>
-						</ul>
-					</nav>
+
+				 <nav id="nav">
+
+                <ul class="links">
+					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
+					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
+				</ul>
+				{if count($conf->roles)>0}
+				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
+			{else}
+				<a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
+			{/if}
+			</nav> 
 
 				<!-- Main -->
 					<div id="main">
-
+					{if Core\RoleUtils::inRole("1")}
+					<h5>Zalogowano jako ADMIN <br><br><a class="button" href="{$conf->action_root}movieNew">dodaj nowy film</a></h5>
+					{/if}
+					<div class="bottom-margin">
+					<form class="pure-form pure-form-stacked" action="{$conf->action_url}MovieSearch">
+					 <legend>Wyszukaj film</legend>
+					  <fieldset>							
+						<input type="text" placeholder="tytuł filmu" name="name" value="" />
+						<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
+					  </fieldset>
+					</form>
+				</div>
 						<!-- Posts -->
 							<section class="posts">
+							{foreach $movie as $m}
+								<article>
+								    <h5 class="major">{$m["year"]}</h5>
+									<h3 class="major">{$m["title"]}</h3>
+								    <a class="image"><img src="images/{$m["cover"]}" height=320 width=250 /></a>
+									<h6 class="center">{$m["description"]}</h6>
+
+									<a class="button small" href="{$conf->action_url}movieView/{$m['id_movie']}">Zobacz szczegóły</a>
+
+								</article>
+							{/foreach}
+							<!--
 								<article>
 									<header>
 										<h2><a href="#">Świnka<br />
@@ -132,13 +137,13 @@ function content_64861b1593d623_17449111 (Smarty_Internal_Template $_smarty_tpl)
 									<ul class="actions special">
 										<li><a href="#" class="button">Rozwiń</a></li>
 									</ul>
-								</article>
+								</article> -->
 							</section>
 
 						<!-- Footer -->
 							<footer>
 								<div class="pagination">
-									<a href="#" class="previous">Prev</a>
+									<a href="#" class="previous">poprzednia</a>
 									<a href="#" class="page active">1</a>
 									<a href="#" class="page">2</a>
 									<a href="#" class="page">3</a>
@@ -146,7 +151,7 @@ function content_64861b1593d623_17449111 (Smarty_Internal_Template $_smarty_tpl)
 									<a href="#" class="page">8</a>
 									<a href="#" class="page">9</a>
 									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a>
+									<a href="#" class="next">następna</a>
 								</div>
 							</footer>
 
@@ -160,28 +165,13 @@ function content_64861b1593d623_17449111 (Smarty_Internal_Template $_smarty_tpl)
 			</div>
 
 		<!-- Scripts -->
-			<?php echo '<script'; ?>
- src="assets/js/jquery.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/jquery.scrollex.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/jquery.scrolly.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/browser.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/util.js"><?php echo '</script'; ?>
->
-			<?php echo '<script'; ?>
- src="assets/js/main.js"><?php echo '</script'; ?>
->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
-</html><?php }
-}
+</html>

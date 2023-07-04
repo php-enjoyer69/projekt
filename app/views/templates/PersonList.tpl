@@ -24,17 +24,23 @@
 
 				<!-- Nav -->
 				<nav id="nav">
-				<ul class="links">
-					<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
-					<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
-					<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
-					<li><a href="{$conf->action_url}login">Wyloguj</a></li>
+
+                <ul class="links">
+					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
+					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
 				</ul>
-			</nav>
+				{if count($conf->roles)>0}
+				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
+			{else}
+				<a href="{$conf->action_root}loginShow" class="button primary">Zaloguj</a>
+			{/if}
+			</nav> 
 
 				<!-- Main -->
 					<div id="main">
-
+					{if Core\RoleUtils::inRole("1")}
+					<h5>Zalogowano jako ADMIN</span></h5>
+					{/if}
 						<!-- Posts -->
 							<section class="posts">
 							{foreach $person as $p}

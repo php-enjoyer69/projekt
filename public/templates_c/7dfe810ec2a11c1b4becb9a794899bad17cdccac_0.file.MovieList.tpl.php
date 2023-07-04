@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-03 20:10:46
+/* Smarty version 3.1.33, created on 2023-07-04 09:58:44
   from 'C:\xampp\htdocs\projekt\app\views\templates\MovieList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a30f265ee591_61922887',
+  'unifunc' => 'content_64a3d134e02fb0_87725765',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7dfe810ec2a11c1b4becb9a794899bad17cdccac' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieList.tpl',
-      1 => 1688407834,
+      1 => 1688457461,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a30f265ee591_61922887 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a3d134e02fb0_87725765 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <!--
 	Massively by HTML5 UP
@@ -42,36 +42,19 @@ function content_64a30f265ee591_61922887 (Smarty_Internal_Template $_smarty_tpl)
 
 				<!-- Header -->
 					<header id="header">
-						<a href="MainView.tpl" class="logo">Precel</a>
+						<a href="MainView" class="logo">Precel</a>
 					</header>
 
 				<!-- Nav -->
 
 				 <nav id="nav">
-				<?php if (Core\RoleUtils::inRole("1")) {?>
-				
+
                 <ul class="links">
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MainView">Strona główna</a></li>
+movieList">Filmy i Seriale</a></li>
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MovieList">Filmy i Seriale</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MovieEdit">Edytuj film</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-PersonList">Aktorzy i Reżyserzy</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-PersonEdit">Edytuj osoby</a></li>
+personList">Aktorzy i Reżyserzy</a></li>
 				</ul>
-				<?php } else { ?>
-				<ul class="links">
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MainView">Strona główna</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-MovieList">Filmy i Seriale</a></li>
-					<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-PersonList">Aktorzy i Reżyserzy</a></li>
-				</ul>
-				<?php }?>
 				<?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
 				<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout" class="button primary">Wyloguj</a>
@@ -84,7 +67,8 @@ loginShow" class="button primary">Zaloguj</a>
 				<!-- Main -->
 					<div id="main">
 					<?php if (Core\RoleUtils::inRole("1")) {?>
-					<a>Zalogowano jako admin</span></a>
+					<h5>Zalogowano jako ADMIN <br><br><a class="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+movieNew">dodaj nowy film</a></h5>
 					<?php }?>
 					<div class="bottom-margin">
 					<form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
@@ -92,8 +76,6 @@ MovieSearch">
 					 <legend>Wyszukaj film</legend>
 					  <fieldset>							
 						<input type="text" placeholder="tytuł filmu" name="name" value="" />
-
-
 						<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
 					  </fieldset>
 					</form>
@@ -114,6 +96,17 @@ foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
 " height=320 width=250 /></a>
 									<h6 class="center"><?php echo $_smarty_tpl->tpl_vars['m']->value["description"];?>
 </h6>
+
+									<?php if (Core\RoleUtils::inRole("1")) {?>
+											<a class="button small" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+movieEdit/<?php echo $_smarty_tpl->tpl_vars['m']->value['id_movie'];?>
+">Edytuj film</a>
+											<a class="button small"
+											href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+movieDelete/<?php echo $_smarty_tpl->tpl_vars['m']->value['id_movie'];?>
+">Usuń</a>
+									<?php }?>
+
 								</article>
 							<?php
 }

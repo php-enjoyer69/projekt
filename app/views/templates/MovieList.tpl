@@ -19,28 +19,17 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="MainView.tpl" class="logo">Precel</a>
+						<a href="MainView" class="logo">Precel</a>
 					</header>
 
 				<!-- Nav -->
 
 				 <nav id="nav">
-				{if Core\RoleUtils::inRole("1")}
-				
+
                 <ul class="links">
-					<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
-					<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
-					<li><a href="{$conf->action_root}MovieEdit">Edytuj film</a></li>
-					<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
-					<li><a href="{$conf->action_root}PersonEdit">Edytuj osoby</a></li>
+					<li><a href="{$conf->action_root}movieList">Filmy i Seriale</a></li>
+					<li><a href="{$conf->action_root}personList">Aktorzy i Reżyserzy</a></li>
 				</ul>
-				{else}
-				<ul class="links">
-					<li><a href="{$conf->action_root}MainView">Strona główna</a></li>
-					<li><a href="{$conf->action_root}MovieList">Filmy i Seriale</a></li>
-					<li><a href="{$conf->action_root}PersonList">Aktorzy i Reżyserzy</a></li>
-				</ul>
-				{/if}
 				{if count($conf->roles)>0}
 				<a href="{$conf->action_root}logout" class="button primary">Wyloguj</a>
 			{else}
@@ -51,15 +40,13 @@
 				<!-- Main -->
 					<div id="main">
 					{if Core\RoleUtils::inRole("1")}
-					<a>Zalogowano jako admin</span></a>
+					<h5>Zalogowano jako ADMIN <br><br><a class="button" href="{$conf->action_root}movieNew">dodaj nowy film</a></h5>
 					{/if}
 					<div class="bottom-margin">
 					<form class="pure-form pure-form-stacked" action="{$conf->action_url}MovieSearch">
 					 <legend>Wyszukaj film</legend>
 					  <fieldset>							
 						<input type="text" placeholder="tytuł filmu" name="name" value="" />
-
-
 						<button type="submit" class="pure-button pure-button-primary">Filtruj</button>
 					  </fieldset>
 					</form>
@@ -72,6 +59,13 @@
 									<h3 class="major">{$m["title"]}</h3>
 								    <a class="image"><img src="images/{$m["cover"]}" height=320 width=250 /></a>
 									<h6 class="center">{$m["description"]}</h6>
+
+									{if Core\RoleUtils::inRole("1")}
+											<a class="button small" href="{$conf->action_url}movieEdit/{$m['id_movie']}">Edytuj film</a>
+											<a class="button small"
+											href="{$conf->action_url}movieDelete/{$m['id_movie']}">Usuń</a>
+									{/if}
+
 								</article>
 							{/foreach}
 							<!--

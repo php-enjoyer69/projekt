@@ -18,18 +18,17 @@ Utils::addRoute('logout',        'LoginCtrl');
 Utils::addRoute('registerShow',  'RegisterCtrl');
 Utils::addRoute('register',      'RegisterCtrl');
 
-Utils::addRoute('MovieList',    'MovieListCtrl');
-Utils::addRoute('PersonList',   'PersonListCtrl');
+Utils::addRoute('movieList',    'MovieListCtrl');
+Utils::addRoute('personList',   'PersonListCtrl');
 
-Utils::addRoute('MovieTab',     'MovieTabCtrl');
-Utils::addRoute('PersonTab',    'PersonTabCtrl');
+Utils::addRoute('movieView',     'MovieViewCtrl');
 
 Utils::addRoute('movieNew',     'MovieEditCtrl');
-Utils::addRoute('MovieEdit',    'MovieEditCtrl');
+Utils::addRoute('movieEdit',    'MovieEditCtrl');
 Utils::addRoute('movieSave',    'MovieEditCtrl');
 Utils::addRoute('movieDelete',  'MovieEditCtrl');
 
-Utils::addRoute('PersonNew',     'PersonEditCtrl');
-Utils::addRoute('PersonEdit',    'PersonEditCtrl');
-Utils::addRoute('PersonSave',    'PersonEditCtrl');
-Utils::addRoute('PersonDelete',  'PersonEditCtrl');
+Utils::addRoute('personNew',     'PersonEditCtrl');
+Utils::addRoute('personEdit',    'PersonEditCtrl');
+Utils::addRoute('personSave',    'PersonEditCtrl');
+Utils::addRoute('personDelete',  'PersonEditCtrl');

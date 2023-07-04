@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 
 <head>
-		<title>rejstracja <a class="image"><img src="images/pretzelcharacter.png" height=65 width=50 alt=""/></a></title>
+		<title>Logowanie - Precel.pl</title>{* <a class="image"><img src="images/pretzelcharacter.png" height=65 width=50 alt=""/></a> *}
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{$conf->app_url}/assets/css/main1.css" />

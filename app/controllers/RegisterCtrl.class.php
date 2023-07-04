@@ -60,7 +60,7 @@ class RegisterCtrl
                     "pass" => $this->form->pass,
                 ]);
                 Utils::addErrorMessage('Pomyślnie zarejestrowano');
-            } catch (PDOException $e) {
+            } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas rejestracji');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
