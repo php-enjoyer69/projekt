@@ -64,11 +64,16 @@
 						<!-- Posts -->
 							<section>
 								<article>
-								    <h3 style="color: #ff4eac"> Szczegóły na temat filmu: <h2>{$movie["title"]}</h2></h3>
-								    <h4 style="color: #ff4eac">Rok Produkcji:</h4><h3>{$movie["year"]}</h3>
-									<h4 style="color: #ff4eac">Opis: </h4><h4>{$movie["description"]}</h4>
-									<h4 style="color: #ff4eac">Występują: </h4><h4>{$movie["starring"]}</h4>
 
+								    <h3 style="color: #ff4eac">Szczegóły na temat filmu: <h2>{$movie["title"]}</h2></h3>
+								    <h4 style="color: #ff4eac">Rok Produkcji: </h4><h3>{$movie["year"]}</h3>
+									<h4 style="color: #ff4eac">Opis: </h4><h4>{$movie["description"]}</h4>
+									<h4 style="color: #ff4eac">Występują: </h4>
+									<ul>
+									{foreach $cast as $c}
+									<li>{$c["name"]} {$c["surname"]} jako {if $c["is_director"]}reżyser{else}aktor{/if} {if Core\RoleUtils::inRole("1")}<a style="margin-left: 10px" class="button small" href="{$conf->action_root}roleDelete/{$movie["id_movie"]}/{$c["id_person"]}">usuń rolę</a>{/if}</li>	
+									{/foreach} 
+                                    </ul>
 
 								</article><br>
 									<a class="button primary" href="{$conf->action_root}movieList">Powrót</a>
@@ -149,7 +154,7 @@
 							</section>
 
 						<!-- Footer -->
-							<footer>
+						{*	<footer>
 								<div class="pagination">
 									<a href="#" class="previous">poprzednia</a>
 									<a href="#" class="page active">1</a>
@@ -161,7 +166,7 @@
 									<a href="#" class="page">10</a>
 									<a href="#" class="next">następna</a>
 								</div>
-							</footer>
+							</footer> *}
 
 					</div>
 

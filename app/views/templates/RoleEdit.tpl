@@ -4,7 +4,7 @@
 
 <head>
 
-    <title>Edycja osób</title>
+    <title>Edycja roli</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -51,44 +51,39 @@
     <section id="wrapper">
 
         <div class="bottom-margin form-container">
-        <h2 style="text-align: center"><br>edycja/dodawanie filmów</h2>
+        <h2 style="text-align: center"><br>przydzielanie roli w filmie</h2>
 
-            <form action="{$conf->action_root}movieSave" method="post" class="pure-form pure-form-aligned">
-            <input type="hidden" name="id_movie" value="{$form->id_movie}">
+            <form action="{$conf->action_root}roleSave" method="post" class="pure-form pure-form-aligned">
+            <input type="hidden" name="id_role" value="{$form->id_role}">
 
                 <fieldset>
 
                     <div class="pure-control-group">
-                        <label for="title">tytuł</label>
-                        <input id="name" type="text" placeholder="title" name="title"
-                            value="{$form->title}">
+                        <label for="id_movie">wybierz film</label>
+                        <select id="id_movie" name="id_movie">
+                        {foreach $movie as $m}
+                        <option value="{$m["id_movie"]}"{if $m["id_movie"]==$form->id_movie}selected{{/if}}>{$m["title"]}</option>
+                        {/foreach} </select>
                     </div><br>
 
                     <div class="pure-control-group">
-                        <label for="year">data</label>
-                        <input id="year" type="text" placeholder="data" name="year"
-                            value="{$form->year}">
+                        <label for="id_person">wybierz osobę</label>
+                        <select id="id_person" name="id_person">
+                        {foreach $person as $p}
+                        <option value="{$p["id_person"]}"{if $p["id_person"]==$form->id_person}selected{{/if}}>{$p["name"]} {$p["surname"]}</option>
+                        {/foreach} </select>
                     </div><br>
 
+                   {*srake*}
                     <div class="pure-control-group">
-                        <label for="description">opis</label>
-                        <input id="description" type="text" name="description" placeholder="opis"
-                            value="{$form->description}"></input>
-                    </div><br>
+                        <label for="is_director">kim jest ta osoba w filmie</label>
+                        <select id="is_director" name="is_director">
 
-                    <div class="pure-control-group">
-                        <label for="title">plik z obrazkiem</label>
-                        <input id="cover" type="text" placeholder="obrazek" name="cover"
-                            value="{$form->cover}">
-                    </div><br>
+                        <option value="0" >aktor</option>
+                        <option value="1" >reżyser</option>
 
-                    
-                    <div class="pure-control-group">
-                        <label for="starring">kto występuje</label>
-                        <input id="starring" type="text" placeholder="kto występuje" name="starring"
-                            value="{$form->starring}">
+                         </select>
                     </div><br>
-
                     <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
                         <input type="submit" class="button primary" value="Zapisz" />
                         <a class="button" href="{$conf->action_root}movieList">Powrót</a>

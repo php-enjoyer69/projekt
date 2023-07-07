@@ -67,8 +67,12 @@
 								<article>
 								    <h3 style="color: #ff4eac">Szczegóły na temat osoby: <h2>{$person["name"]} {$person["surname"]}</h2></h3>
 								    <h4 style="color: #ff4eac">Rok urodzenia:</h4><h3>{$person["birthyear"]}</h3>
-									<h4 style="color: #ff4eac">{$person["name"]} to </h4><h4>{$person["person_role"]}</h4>
-									<h4 style="color: #ff4eac">Filmy z {$person["name"]} {$person["surname"]}: </h4><h4>{$person["starred_in"]}</h4>
+									<h4 style="color: #ff4eac">Filmy z {$person["name"]} {$person["surname"]}: </h4>
+									<ul>
+									{foreach $cast as $c}
+									<li>{if $c["is_director"]}reżyser{else}aktor{/if} w filmie {$c["title"]} {if Core\RoleUtils::inRole("1")}<a style="margin-left: 10px" class="button small" href="{$conf->action_root}roleDelete/{$c["id_movie"]}/{$person["id_person"]}">usuń rolę</a>{/if}</li>	
+									{/foreach} 
+                                    </ul>
 
 
 								</article><br>
@@ -150,7 +154,8 @@
 							</section>
 
 						<!-- Footer -->
-							<footer>
+{*
+						<footer>
 								<div class="pagination">
 									<a href="#" class="previous">poprzednia</a>
 									<a href="#" class="page active">1</a>
@@ -163,7 +168,7 @@
 									<a href="#" class="next">następna</a>
 								</div>
 							</footer>
-
+*}
 					</div>
 
 				<!-- Copyright -->

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-04 19:54:04
+/* Smarty version 3.1.33, created on 2023-07-07 19:45:29
   from 'C:\xampp\htdocs\projekt\app\views\templates\PersonView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a45cbccb3ab8_58732616',
+  'unifunc' => 'content_64a84f392c52b7_81200563',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '26f172bc68dcd0d10edee9926acd6c993e1a4053' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\PersonView.tpl',
-      1 => 1688493236,
+      1 => 1688751926,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a45cbccb3ab8_58732616 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a84f392c52b7_81200563 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -79,7 +79,7 @@ loginShow" class="button primary">Zaloguj</a>
 
 					
 			<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_104872170364a45cbcc9a167_99424352', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_92643103764a84f392acdc0_64880342', 'messages');
 ?>
 
 						<!-- Posts -->
@@ -90,13 +90,25 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_104872170364a45cbc
 </h2></h3>
 								    <h4 style="color: #ff4eac">Rok urodzenia:</h4><h3><?php echo $_smarty_tpl->tpl_vars['person']->value["birthyear"];?>
 </h3>
-									<h4 style="color: #ff4eac"><?php echo $_smarty_tpl->tpl_vars['person']->value["name"];?>
- to </h4><h4><?php echo $_smarty_tpl->tpl_vars['person']->value["person_role"];?>
-</h4>
 									<h4 style="color: #ff4eac">Filmy z <?php echo $_smarty_tpl->tpl_vars['person']->value["name"];?>
  <?php echo $_smarty_tpl->tpl_vars['person']->value["surname"];?>
-: </h4><h4><?php echo $_smarty_tpl->tpl_vars['person']->value["starred_in"];?>
-</h4>
+: </h4>
+									<ul>
+									<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['cast']->value, 'c');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['c']->value) {
+?>
+									<li><?php if ($_smarty_tpl->tpl_vars['c']->value["is_director"]) {?>reżyser<?php } else { ?>aktor<?php }?> w filmie <?php echo $_smarty_tpl->tpl_vars['c']->value["title"];?>
+ <?php if (Core\RoleUtils::inRole("1")) {?><a style="margin-left: 10px" class="button small" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+roleDelete/<?php echo $_smarty_tpl->tpl_vars['c']->value["id_movie"];?>
+/<?php echo $_smarty_tpl->tpl_vars['person']->value["id_person"];?>
+">usuń rolę</a><?php }?></li>	
+									<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> 
+                                    </ul>
 
 
 								</article><br>
@@ -179,20 +191,6 @@ personList">Powrót</a>
 							</section>
 
 						<!-- Footer -->
-							<footer>
-								<div class="pagination">
-									<a href="#" class="previous">poprzednia</a>
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">następna</a>
-								</div>
-							</footer>
-
 					</div>
 
 				<!-- Copyright -->
@@ -228,12 +226,12 @@ personList">Powrót</a>
 	</body>
 </html><?php }
 /* {block 'messages'} */
-class Block_104872170364a45cbcc9a167_99424352 extends Smarty_Internal_Block
+class Block_92643103764a84f392acdc0_64880342 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_104872170364a45cbcc9a167_99424352',
+    0 => 'Block_92643103764a84f392acdc0_64880342',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

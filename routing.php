@@ -36,3 +36,8 @@ Utils::addRoute('personNew',     'PersonEditCtrl');
 Utils::addRoute('personEdit',    'PersonEditCtrl');
 Utils::addRoute('personSave',    'PersonEditCtrl');
 Utils::addRoute('personDelete',  'PersonEditCtrl');
+
+Utils::addRoute('roleNew',     'RoleEditCtrl');
+Utils::addRoute('roleEdit',    'RoleEditCtrl');
+Utils::addRoute('roleSave',    'RoleEditCtrl');
+Utils::addRoute('roleDelete',  'RoleEditCtrl');

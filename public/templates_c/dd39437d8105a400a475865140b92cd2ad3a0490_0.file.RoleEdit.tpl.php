@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-05 09:13:09
-  from 'C:\xampp\htdocs\projekt\app\views\templates\MovieEdit.tpl' */
+/* Smarty version 3.1.33, created on 2023-07-07 17:34:39
+  from 'C:\xampp\htdocs\projekt\app\views\templates\RoleEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a51805829ab4_81047619',
+  'unifunc' => 'content_64a8308f18a818_34487745',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '8479ddc2bff8cc1583cc3566d15a21b846a3141d' => 
+    'dd39437d8105a400a475865140b92cd2ad3a0490' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\MovieEdit.tpl',
-      1 => 1688540989,
+      0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\RoleEdit.tpl',
+      1 => 1688744074,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a51805829ab4_81047619 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64a8308f18a818_34487745 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -30,7 +30,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 
 <head>
 
-    <title>Edycja osób</title>
+    <title>Edycja roli</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -51,7 +51,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <nav>
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_171752418164a51805817233_18182103', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_32316798364a8308f14ce96_92756875', 'messages');
 ?>
 
 
@@ -65,51 +65,67 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_171752418164a51805
     <section id="wrapper">
 
         <div class="bottom-margin form-container">
-        <h2 style="text-align: center"><br>edycja/dodawanie filmów</h2>
+        <h2 style="text-align: center"><br>przydzielanie roli w filmie</h2>
 
             <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-movieSave" method="post" class="pure-form pure-form-aligned">
-            <input type="hidden" name="id_movie" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_movie;?>
+roleSave" method="post" class="pure-form pure-form-aligned">
+            <input type="hidden" name="id_role" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_role;?>
 ">
 
                 <fieldset>
 
                     <div class="pure-control-group">
-                        <label for="title">tytuł</label>
-                        <input id="name" type="text" placeholder="title" name="title"
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->title;?>
-">
+                        <label for="id_movie">wybierz film</label>
+                        <select id="id_movie" name="id_movie">
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['movie']->value, 'm');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['m']->value) {
+?>
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['m']->value["id_movie"];?>
+"<?php if ($_smarty_tpl->tpl_vars['m']->value["id_movie"] == $_smarty_tpl->tpl_vars['form']->value->id_movie) {?>selected<?php ob_start();
+}
+$_prefixVariable1 = ob_get_clean();
+echo $_prefixVariable1;?>
+><?php echo $_smarty_tpl->tpl_vars['m']->value["title"];?>
+</option>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> </select>
                     </div><br>
 
                     <div class="pure-control-group">
-                        <label for="year">data</label>
-                        <input id="year" type="text" placeholder="data" name="year"
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->year;?>
-">
+                        <label for="id_person">wybierz osobę</label>
+                        <select id="id_person" name="id_person">
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['person']->value, 'p');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
+?>
+                        <option value="<?php echo $_smarty_tpl->tpl_vars['p']->value["id_person"];?>
+"<?php if ($_smarty_tpl->tpl_vars['p']->value["id_person"] == $_smarty_tpl->tpl_vars['form']->value->id_person) {?>selected<?php ob_start();
+}
+$_prefixVariable2 = ob_get_clean();
+echo $_prefixVariable2;?>
+><?php echo $_smarty_tpl->tpl_vars['p']->value["name"];?>
+ <?php echo $_smarty_tpl->tpl_vars['p']->value["surname"];?>
+</option>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?> </select>
                     </div><br>
 
-                    <div class="pure-control-group">
-                        <label for="description">opis</label>
-                        <input id="description" type="text" name="description" placeholder="opis"
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->description;?>
-"></input>
-                    </div><br>
+                                       <div class="pure-control-group">
+                        <label for="is_director">kim jest ta osoba w filmie</label>
+                        <select id="is_director" name="is_director">
 
-                    <div class="pure-control-group">
-                        <label for="title">plik z obrazkiem</label>
-                        <input id="cover" type="text" placeholder="obrazek" name="cover"
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->cover;?>
-">
-                    </div><br>
+                        <option value="0" >aktor</option>
+                        <option value="1" >reżyser</option>
 
-                    
-                    <div class="pure-control-group">
-                        <label for="starring">kto występuje</label>
-                        <input id="starring" type="text" placeholder="kto występuje" name="starring"
-                            value="<?php echo $_smarty_tpl->tpl_vars['form']->value->starring;?>
-">
+                         </select>
                     </div><br>
-
                     <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
                         <input type="submit" class="button primary" value="Zapisz" />
                         <a class="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
@@ -150,12 +166,12 @@ movieList">Powrót</a>
 </html>
 <?php }
 /* {block 'messages'} */
-class Block_171752418164a51805817233_18182103 extends Smarty_Internal_Block
+class Block_32316798364a8308f14ce96_92756875 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_171752418164a51805817233_18182103',
+    0 => 'Block_32316798364a8308f14ce96_92756875',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
