@@ -82,23 +82,6 @@
 
 				</div>
 
-                    <div class="pure-control-group"> <br>
-                    <label for="person_role">rola osoby</label>
-                    <select id="person_role" name="person_role">
-                    <option value="reżyser/reżyserka">reżyser/reżyserka</option>
-                    <option value="aktor/aktorka">aktor/aktorka</option>
-                    <option value="aktor i reżyser/aktorka i reżyserka">aktor i reżyser/aktorka i reżyserka</option>
-                    </select>
-                </div>
-
-                    <div class="pure-control-group"> <br>
-                    <label for="starred_in">udział w tych filmach:</label>
-                    <input id="starred_in" type="text" placeholder="filmy w których brano udział" name="starred_in"
-
-                        value="{$form->starred_in}">
-
-               </div>
-
                     <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
                         <input type="submit" class="button primary" value="Zapisz" />
                         <a class="button" href="{$conf->action_root}personList">Powrót</a>

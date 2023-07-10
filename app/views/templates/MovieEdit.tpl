@@ -82,13 +82,6 @@
                             value="{$form->cover}">
                     </div><br>
 
-                    
-                    <div class="pure-control-group">
-                        <label for="starring">kto występuje</label>
-                        <input id="starring" type="text" placeholder="kto występuje" name="starring"
-                            value="{$form->starring}">
-                    </div><br>
-
                     <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
                         <input type="submit" class="button primary" value="Zapisz" />
                         <a class="button" href="{$conf->action_root}movieList">Powrót</a>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2023-07-05 09:12:11
+/* Smarty version 3.1.33, created on 2023-07-10 11:06:06
   from 'C:\xampp\htdocs\projekt\app\views\templates\PersonEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_64a517cbe1dde0_22459104',
+  'unifunc' => 'content_64abc9fe6073c3_25902649',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1777871e61427553c35e703b1fc92b4ff35bdeaf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\projekt\\app\\views\\templates\\PersonEdit.tpl',
-      1 => 1688541010,
+      1 => 1688979963,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_64a517cbe1dde0_22459104 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64abc9fe6073c3_25902649 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -48,7 +48,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <nav>
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_144725511564a517cbe0a631_29913353', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_65150923764abc9fe5eeed2_92553413', 'messages');
 ?>
 
 
@@ -102,24 +102,6 @@ personSave" method="post" class="pure-form pure-form-aligned">
 
 				</div>
 
-                    <div class="pure-control-group"> <br>
-                    <label for="person_role">rola osoby</label>
-                    <select id="person_role" name="person_role">
-                    <option value="reżyser/reżyserka">reżyser/reżyserka</option>
-                    <option value="aktor/aktorka">aktor/aktorka</option>
-                    <option value="aktor i reżyser/aktorka i reżyserka">aktor i reżyser/aktorka i reżyserka</option>
-                    </select>
-                </div>
-
-                    <div class="pure-control-group"> <br>
-                    <label for="starred_in">udział w tych filmach:</label>
-                    <input id="starred_in" type="text" placeholder="filmy w których brano udział" name="starred_in"
-
-                        value="<?php echo $_smarty_tpl->tpl_vars['form']->value->starred_in;?>
-">
-
-               </div>
-
                     <div class="pure-controls" style="margin-top: 20px; margin-left: 65px;">
                         <input type="submit" class="button primary" value="Zapisz" />
                         <a class="button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
@@ -169,12 +151,12 @@ personList">Powrót</a>
 
 </html><?php }
 /* {block 'messages'} */
-class Block_144725511564a517cbe0a631_29913353 extends Smarty_Internal_Block
+class Block_65150923764abc9fe5eeed2_92553413 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'messages' => 
   array (
-    0 => 'Block_144725511564a517cbe0a631_29913353',
+    0 => 'Block_65150923764abc9fe5eeed2_92553413',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
